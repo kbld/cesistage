@@ -1,100 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CESI - Recherche de Stage</title>
-  <link rel="stylesheet" type="text/css" href="style.css" />
-  <link rel="icon" href="cesiicon.svg" sizes="32x32">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-</head>
+<html lang="fr">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CESI - Recherche de Stage</title>
+    <link rel="stylesheet" type="text/css" href="static/css/main.css" />
+    <link rel="icon" href="cesiicon.svg" sizes="32x32">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
 <!--PAGE ENTIERE-->
 <section id="page">
-
-  <!--MENU-->
-  <nav class="navbar">
-    <ul class="">
-      <li>
-        <div href="#" class="main-logo"></div>
-        <a href="#" class="nav-label">
-          <div href="#" class="profile-img"></div>
-          <div href="#" class="nav-label-img">Votre Profil</div>
-        </a>
-        <a href="#" class="nav-label-here">Accueil</a>
-        <a href="#" class="nav-label">Vos Candidatures</a>
-        <a href="#" class="nav-label">Offres de stage</a>
-        <a href="#" class="nav-label">Favoris</a>
-        
-      </li>
-    </ul>
-  </nav>
-  <!--MENU-->
-
-  <!--PAGE-->
-  <main>
-    <div class="main-img">
-      <div class="main-text">Vous recherchez <span class="stabilo">un stage</span> laissez-nous vous guider…</div>
-      <div class="boxsearch">
-        <div class="search">
-          <input type="text" class="searchTerm" placeholder="Recherchez parmis 84 offres de stage">
-          <button type="submit" class="searchButton">RECHERCHEZ</button>
+    <!--
+        PAS BON !
+        Il peut y avoir plusieurs sections, une section par article/item  ça poarrait remplacer plusieurs divs que tu a mit
+    -->
+    <!--MENU-->
+    <nav class="navbar">
+        <ul class="">
+            <li>
+                <div href="#" class="main-logo"></div>
+                <a href="#" class="nav-label">
+                    <div href="#" class="profile-img"></div>
+                    <div href="#" class="nav-label-img">Votre Profil</div>
+                </a>
+                <a href="#" class="nav-label-here">Accueil</a>
+                <a href="#" class="nav-label">Vos Candidatures</a>
+                <a href="#" class="nav-label">Offres de stage</a>
+                <a href="#" class="nav-label">Favoris</a>
+            </li>
+        </ul>
+    </nav>
+    <!--MENU-->
+    <!--PAGE-->
+    <main> 
+        <div class="main-img">
+            <div class="main-text">Vous recherchez <span class="stabilo">un stage</span> laissez-nous vous guider…</div>
+            <div class="boxsearch">
+                <div class="search">
+                    <input type="text" class="searchTerm" placeholder="Recherchez parmis 84 offres de stage">
+                    <button type="submit" class="searchButton">RECHERCHEZ</button>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div> 
-
-
-    <div class="little-forme"></div>
-
-
-    <div class="sectionupload">
-      <div class="main-txt">Générez ci-dessous un nouveau CV et/ou Lettre de motivation :</div>
-      <div class="button-upload-bloc">
-      <button class="button">CV</button>
-      <input multiple type="file" accept="image/*,application/pdf">
-      <button class="button">Lettre de motivation</button>
-  </div>
-    </div>
-    
-  
-  
-  
-  
-  
-  
-  
-  </div>
+        <div>
+            <div class="little-forme"></div>
+            <div class="sectionupload">
+                <div class="main-txt">Générez ci-dessous un nouveau CV et/ou Lettre de motivation :</div>
+                <div class="button-upload-bloc">
+                    <button class="button">CV</button>
+                    <input multiple type="file" accept="image/*,application/pdf">
+                    <button class="button">Lettre de motivation</button>
+                </div>
+            </div>
+        </div>
     </main>
-
     <footer>
-
-      
-
-      <div class="footer-copyright">© CESI 2021</div>
-  
-  </footer>
-
-
-  <!--PAGE-->
+        <div class="footer-copyright">© Promo CESI DI 2020-2021</div>
+    </footer>
+    <!--PAGE-->
 </section>
 <!--PAGE ENTIERE-->
-
-<script src="java.js"></script>
+<script src="static/js/main.js"></script>
 </body>
+
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
