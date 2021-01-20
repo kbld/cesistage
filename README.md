@@ -6,5 +6,5 @@ Don't be an asshole.
 
 ## TODO
 
-[ ] Create the base PHP structure
-[ ] Create the app
+- [ ] Create the base PHP structure
+- [ ] Create the app
