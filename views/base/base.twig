@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+	{% include("head.twig") %}
+</head>
+<body>
+	{% include("navbar.twig") %}
+
+{#
+	<header>
+	{% include("header.twig") %}
+	</header>
+#}
+
+	<main>
+	{% block content %}
+	{% endblock %}
+	</main>
+
+	<footer>
+        {% include("footer.twig") %}
+    </footer>
+
+	{% include("scripts.twig") %}
+</body>
+</html>
