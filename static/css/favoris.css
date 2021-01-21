@@ -42,6 +42,7 @@ a[href*="intent"] {
     margin: 0 auto 1em;
     font-size: 45px;
     overflow: hidden;
+    display: flex;
 }
 
 .rating a {
