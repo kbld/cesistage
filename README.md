@@ -2,7 +2,7 @@
 
 ## Good practices
 
-Don't be an asshole.
+Be an asshole.
 
 ## TODO
 
