@@ -3,8 +3,44 @@
 {% block title %}CESI - Vos favoris{% endblock %}
 
 {% block style %}
+<link rel="stylesheet" href="/static/css/favoris.css">
 {% endblock %}
 
 {% block content %}
+<div class="entreprise">
+    <div class="entrepriseFavorites">Entreprise
+        <div class="rating rating2">
+            <a href="#5" title="Give 5 stars">★</a>
+            <a href="#4" title="Give 4 stars">★</a>
+            <a href="#3" title="Give 3 stars">★</a>
+            <a href="#2" title="Give 2 stars">★</a>
+            <a href="#1" title="Give 1 star">★</a>
+        </div>
+        <div>Commentaires</div>
+        <li><a href="#"> CV envoyé à cette entreprise</a></li>
+        <li><a href="# ">Lettre de motivation envoyée à cette entreprise</a></li>
+        <div>Date a laquelle vous devez faire la relance:</div>
+        <div class="progress">
 
+            <progress value="54" max="100"></progress>
+        </div>
+    </div>
+    <div class="entrepriseFavorites">Entreprise
+
+        <div class="rating rating2">
+            <a href="#5" title="Give 5 stars">★</a>
+            <a href="#4" title="Give 4 stars">★</a>
+            <a href="#3" title="Give 3 stars">★</a>
+            <a href="#2" title="Give 2 stars">★</a>
+            <a href="#1" title="Give 1 star">★</a>
+        </div>
+        <div>Commentaires</div>
+        <li><a href="#"> CV envoyé à cette entreprise</a></li>
+        <li><a href="# ">Lettre de motivation envoyée à cette entreprise</a></li>
+        <div>Date a laquelle vous devez faire la relance:</div>
+        <div class="progress">
+            <progress value="54" max="100"></progress>
+        </div>
+    </div>
+</div>
 {% endblock %}
