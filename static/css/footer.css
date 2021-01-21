@@ -1,0 +1,112 @@
+.footer-copyright {
+    color: #ffffff;
+    font-size: 15px;
+    text-align: center;
+    margin-top: 100px;
+}
+
+@media screen and (min-width: 1200px) {
+    .main-img {
+        background-size: 110%;
+    }
+}
+
+nav {
+    display: grid;
+    width: 225px;
+}
+
+nav > a,
+nav > div {
+    line-height: 40px;
+}
+
+nav label,
+nav a,
+nav li {
+    border-bottom: 1px solid #000000;
+}
+
+nav .last {
+    border-bottom: 0px;
+}
+
+nav > afd {
+    border-top: 10px solid blue !important;
+}
+
+nav a {
+    box-sizing: border-box;
+    color: #ffffff;
+    text-decoration: none;
+    text-indent: 10px;
+}
+
+nav + div {
+    background-color: red !important;
+}
+
+/* CHECKBOX */
+nav input[type="checkbox"] {
+    display: none;
+}
+
+/* LABEL */
+nav label {
+    box-sizing: border-box;
+    display: block;
+    text-indent: 10px;
+}
+
+.linknav:hover {
+    color: #ffc252;
+}
+
+/* TRIANGLE */
+.nav-dropdown label:after,
+nav .subdropdown > span:after {
+    border: 7px solid transparent;
+    border-color: #ffffff transparent transparent transparent;
+    content: "";
+    float: right;
+    transform-origin: 8px 4px;
+    transition: all .1s ease-in-out;
+}
+
+.nav-label
+.nav-dropdown label:after {
+    transform: translateX(-10px) translateY(16px);
+}
+
+.nav-dropdown input:checked ~ label:after {
+    transform: translateX(-10px) translateY(16px) rotateZ(-180deg);
+}
+
+/* TRIANGLE -> dropright */
+nav .subdropdown > span:after {
+    transform: translateX(-10px) translateY(16px) rotateZ(-90deg);
+}
+
+nav .subdropdown:hover > span:after {
+    border-color: #ffffff transparent transparent transparent;
+    transform: translateX(-10px) translateY(16px) rotateZ(-60deg);
+}
+
+/* SUBMENU -> (dropdown) */
+nav .submenu {
+    display: block;
+    max-height: 0px;
+    overflow: hidden;
+    transition: all 0.2s ease-in-out;
+}
+
+nav input:checked ~ .submenu {
+    max-height: 400px;
+}
+
+nav .submenu > a > li,
+nav .submenu span {
+    display: block;
+    height: 40px;
+    text-indent: 25px;
+}

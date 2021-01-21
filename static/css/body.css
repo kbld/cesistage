@@ -1,0 +1,205 @@
+.main-img {
+    /*Image principale*/
+    background-color: #acacac;
+    width: 100%;
+    height: 600px;
+    background-repeat: no-repeat;
+    background-size: 1000px;
+    background-position: center;
+    background-image: url(https://www.i-trekkings.net/wp-content/uploads/2018/08/gr34-plouguerneau-brest-gregoryrohart-9194.jpg);
+}
+
+.stabilo {
+    background-color: hsla(39, 90%, 55%, 0.5);
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    color: currentColor;
+    margin: 0 -.15em;
+    padding: 0 .15em;
+}
+
+.little-forme {
+    background-color: #ffc252;
+    width: 100%;
+    height: 8px;
+}
+
+.main-text {
+    color: #ffffff;
+    font-size: 64px;
+    font-weight: 300;
+    width: 800px;
+    padding-top: 100px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 100px;
+}
+
+.profile-img {
+    height: 30px;
+    width: 30px;
+    border-radius: 100px;
+    margin-top: 3px;
+    background-image: url(https://nagregkendan.desa.id/desa/upload/user_pict/5h9ytx_NoProfileLarge.png);
+    background-size: 40px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.search {
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.searchTerm {
+    width: 500px;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    height: 50px;
+    padding-left: 10px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.classlabel .searchTerm:focus {
+    color: #000000;
+}
+
+.searchButton {
+    width: 140px;
+    height: 50px;
+    border: none;
+    background: #ffc252;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+    outline: none;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.searchButton:hover {
+    background: #fdb124;
+}
+
+.boxsearch {
+    width: 600px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.main-txt {
+    width: 500px;
+    font-size: 25px;
+    font-weight: 600;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 60px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.button {
+    display: inline-block;
+    margin: 10px;
+    border: 0;
+    outline: none;
+    border-radius: 5px;
+    padding: 10px;
+    background: #ffc252;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+    font-weight: bold;
+    width: 180px;
+}
+
+.classlabel {
+    display: inline-block;
+    margin: 0px;
+    border: 0;
+    outline: none;
+    border-radius: 5px;
+    padding: -14px;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    font-size: 13px;
+    font-weight: bold;
+    width: 140px;
+}
+
+.classlabel:hover {
+    color: #ffc252;
+}
+
+.button-upload-bloc {
+    width: 410px;
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+#flip {
+    height: 1em;
+    overflow: hidden;
+}
+
+#flip > div > div {
+    color: #fff;
+    padding: 4px 12px;
+    height: 1em;
+    margin-bottom: 45px;
+    display: inline-block;
+}
+
+#flip div:first-child {
+    animation: show 13s linear infinite;
+}
+
+#flip div div {
+    background-color: hsla(39, 90%, 55%, 0.5);
+}
+
+@keyframes show {
+    0% {
+        margin-top: -5.5em;
+    }
+
+    5% {
+        margin-top: -3.6em;
+    }
+
+    33% {
+        margin-top: -3.6em;
+    }
+
+    38% {
+        margin-top: -1.8em;
+    }
+
+    66% {
+        margin-top: -1.8em;
+    }
+
+    71% {
+        margin-top: -0.1em;
+    }
+
+    99.99% {
+        margin-top: -0.1em;
+    }
+
+    100% {
+        margin-top: -5.5em;
+    }
+}
