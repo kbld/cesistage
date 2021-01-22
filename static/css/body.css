@@ -9,7 +9,6 @@
     background-image: url(https://www.i-trekkings.net/wp-content/uploads/2018/08/gr34-plouguerneau-brest-gregoryrohart-9194.jpg);
 }
 
-
 .stabilo {
     background-color: hsla(39, 90%, 55%, 0.5);
     -webkit-box-decoration-break: clone;
@@ -26,8 +25,6 @@
 }
 
 @media screen and (min-width: 747px) {
-   
-
     .main-text {
         color: #ffffff;
         font-size: 64px;
@@ -39,18 +36,14 @@
         margin-left: auto;
         margin-bottom: 100px;
     }
+
     .boxsearch {
         width: 600px;
         display: block;
         margin-right: auto;
         margin-left: auto;
     }
-
-    
-
 }
-
-
 
 .profile-img {
     height: 30px;
@@ -73,7 +66,7 @@
     width: 500px;
     border: none;
     outline: none;
-    color: #000000;
+    color: #555;
     height: 50px;
     padding-left: 10px;
     border-bottom-left-radius: 5px;
@@ -102,8 +95,6 @@
 .searchButton:hover {
     background: #fdb124;
 }
-
-
 
 .main-txt {
     width: 500px;
@@ -214,15 +205,11 @@ input[type="file"] {
     }
 }
 
-
-
 @media screen and (max-width: 747px) {
-   
     .main-text {
         color: #ffffff;
         font-size: 40px;
         font-weight: 300;
-      
         padding-top: 100px;
         display: block;
         margin-right: auto;
@@ -230,12 +217,14 @@ input[type="file"] {
         margin-bottom: 100px;
         text-align: center;
     }
+
     .boxsearch {
         width: 420px;
         display: block;
         margin-right: auto;
         margin-left: auto;
     }
+
     .searchButton {
         width: 140px;
         height: 50px;
@@ -250,8 +239,4 @@ input[type="file"] {
         border-bottom-right-radius: 5px;
         border-top-right-radius: 5px;
     }
-
-
 }
-
-
