@@ -163,17 +163,6 @@ body {
     height: 8px;
 }
 
-.main-text {
-    color: #ffffff;
-    font-size: 64px;
-    font-weight: 300;
-    width: 800px;
-    padding-top: 100px;
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-    margin-bottom: 100px;
-}
 
 .profile-img {
     height: 30px;
@@ -196,7 +185,7 @@ body {
     width: 500px;
     border: none;
     outline: none;
-    color: #ffffff;
+    color: #000000;
     height: 50px;
     padding-left: 10px;
     border-bottom-left-radius: 5px;
@@ -418,7 +407,6 @@ nav {
     transition: all .1s ease-in-out;
   }
 
-  .nav-label
 
  
   /* TRIANGLE -> dropdown */
