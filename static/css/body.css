@@ -9,6 +9,7 @@
     background-image: url(https://www.i-trekkings.net/wp-content/uploads/2018/08/gr34-plouguerneau-brest-gregoryrohart-9194.jpg);
 }
 
+
 .stabilo {
     background-color: hsla(39, 90%, 55%, 0.5);
     -webkit-box-decoration-break: clone;
@@ -24,17 +25,32 @@
     height: 8px;
 }
 
-.main-text {
-    color: #ffffff;
-    font-size: 64px;
-    font-weight: 300;
-    width: 800px;
-    padding-top: 100px;
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-    margin-bottom: 100px;
+@media screen and (min-width: 747px) {
+   
+
+    .main-text {
+        color: #ffffff;
+        font-size: 64px;
+        font-weight: 300;
+        width: 800px;
+        padding-top: 100px;
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: 100px;
+    }
+    .boxsearch {
+        width: 600px;
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    
+
 }
+
+
 
 .profile-img {
     height: 30px;
@@ -57,7 +73,7 @@
     width: 500px;
     border: none;
     outline: none;
-    color: #ffffff;
+    color: #000000;
     height: 50px;
     padding-left: 10px;
     border-bottom-left-radius: 5px;
@@ -87,12 +103,7 @@
     background: #fdb124;
 }
 
-.boxsearch {
-    width: 600px;
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-}
+
 
 .main-txt {
     width: 500px;
@@ -156,9 +167,8 @@ input[type="file"] {
 
 #flip > div > div {
     color: #fff;
-    padding: 4px 12px;
     height: 1em;
-    margin-bottom: 45px;
+    margin-bottom: 15px;
     display: inline-block;
 }
 
@@ -203,3 +213,45 @@ input[type="file"] {
         margin-top: -5.5em;
     }
 }
+
+
+
+@media screen and (max-width: 747px) {
+   
+    .main-text {
+        color: #ffffff;
+        font-size: 40px;
+        font-weight: 300;
+      
+        padding-top: 100px;
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: 100px;
+        text-align: center;
+    }
+    .boxsearch {
+        width: 420px;
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .searchButton {
+        width: 140px;
+        height: 50px;
+        border: none;
+        background: #eeab26;
+        text-align: center;
+        color: rgb(0, 0, 0);
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 700;
+        outline: none;
+        border-bottom-right-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+
+
+}
+
+
