@@ -159,7 +159,7 @@ input[type="file"] {
 #flip > div > div {
     color: #fff;
     height: 1em;
-    margin-bottom: 15px;
+    margin: 0;
     display: inline-block;
 }
 
@@ -173,35 +173,31 @@ input[type="file"] {
 
 @keyframes show {
     0% {
-        margin-top: -5.5em;
+        margin-top: -2.5em;
     }
 
-    5% {
-        margin-top: -3.6em;
+    25% {
+        margin-top: -2.5em;
     }
 
-    33% {
-        margin-top: -3.6em;
+    30% {
+        margin-top: -1.3em;
     }
 
-    38% {
-        margin-top: -1.8em;
+    60% {
+        margin-top: -1.3em;
     }
 
-    66% {
-        margin-top: -1.8em;
+    65% {
+        margin-top: 0;
     }
 
-    71% {
-        margin-top: -0.1em;
-    }
-
-    99.99% {
-        margin-top: -0.1em;
+    95% {
+        margin-top: 0;
     }
 
     100% {
-        margin-top: -5.5em;
+        margin-top: -2.5em;
     }
 }
 
