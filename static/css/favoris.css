@@ -59,7 +59,7 @@ a[href*="intent"] {
 .rating a:hover~a,
 .rating a:focus,
 .rating a:focus~a {
-    color: orange;
+    color: #ffc252;
     cursor: pointer;
 }
 
