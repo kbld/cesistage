@@ -5,4 +5,7 @@ define('DATABASE_NAME', 'cesistage');
 define('DATABASE_USER', 'cesi');
 define('DATABASE_PASSWORD', 'CesiPassWord');
 
-define('DATABASE_URL', 'mysql:hostname=' + DATABASE_LOCATION + ';dbname=' + DATABASE_NAME);
+define(
+	'DATABASE_URL',
+	'mysql:hostname=' . DATABASE_LOCATION . ';dbname=' . DATABASE_NAME
+);

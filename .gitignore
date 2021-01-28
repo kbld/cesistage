@@ -1,3 +1,4 @@
 cache/*
 vendor/
+.vs/
 .DS_Store
