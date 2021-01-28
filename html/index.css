@@ -415,11 +415,15 @@ ul.notes-echelle li label {
 
 .progress {
     width: 300px;
-    padding: 2px;
     background-color: white;
     border: 1px solid black;
-    text-align: center width: 25px;
+    text-align: center ;
+    width: 25px;
     background-color: green;
+    margin-top: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .entreprise {
@@ -431,14 +435,13 @@ ul.notes-echelle li label {
     align-content: center;
 }
 
-.entrepriseFavorite {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-around;
-    align-items: center;
-    align-content: center;
+.entrepriseFavorites {
+    margin-top: 8em;
+        height: 500px;
+        background-color: red;
 }
+
+
 
 
 /*FOOTER*/

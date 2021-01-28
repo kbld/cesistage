@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CESI - Recherche de Stage</title>
-    <link rel="stylesheet" type="text/css" href="http://localhost:8888/cesistage/static/css/vosdocuments.css" />
+    <link rel="stylesheet" type="text/css" href="http://localhost:8888/cesistage/static/css/offredestage.css" />
     <link rel="icon" href="cesiicon.svg" sizes="32x32">
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
@@ -87,7 +87,7 @@
         <!--SECTION KILLIAN MES DOCUMENT-->
 
         <div class="sectionupload">
-            <div class="main-txt">Librairie de vos fichiers PDF :</div>
+            <div class="main-txt">Voici toutes les offres disponibles :</div>
             <div class="blocdocument">
 
             </div>
@@ -101,26 +101,7 @@
 
 
 
-        <div class="sectionupload">
-            <div class="main-txt">Générez ci-dessous un nouveau fichier PDF :</div>
-            <div class="blocdocument">
-
-                <form action="http://localhost:8888/cesistage/vosdocuments.php" method="GET">
-
-                    <label for="fileUpload" required>Titre de votre document :</label><br>
-                    <input class="inputpdf" autocomplete="off" type="text" required name="titre"><br><br>
-
-                    <label class="btnupload custom-file-upload">
-                    <input id="files" name="document" accept=".pdf" type="file" />
-                    </label><br>
-
-                    <input class="btnsave" autocomplete="off" type="submit" name="submit" value="Enregistrer">
-                </form>
-
-
-                <div id="err"></div>
-            </div>
-        </div>
+      
 
 
 
