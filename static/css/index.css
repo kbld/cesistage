@@ -1,0 +1,132 @@
+#flip {
+    height: 1em;
+    overflow: hidden;
+}
+
+#flip > div > div {
+    color: #fff;
+    height: 1em;
+    margin: 0;
+    display: inline-block;
+}
+
+#flip div:first-child {
+    animation: show 13s linear infinite;
+}
+
+#flip div div {
+    background-color: hsla(39, 90%, 55%, 0.5);
+}
+
+@keyframes show {
+    0% {
+        margin-top: -2.5em;
+    }
+
+    25% {
+        margin-top: -2.5em;
+    }
+
+    30% {
+        margin-top: -1.3em;
+    }
+
+    60% {
+        margin-top: -1.3em;
+    }
+
+    65% {
+        margin-top: 0;
+    }
+
+    95% {
+        margin-top: 0;
+    }
+
+    100% {
+        margin-top: -2.5em;
+    }
+}
+
+.search {
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.searchTerm {
+    width: 500px;
+    border: none;
+    outline: none;
+    color: #555;
+    height: 50px;
+    padding-left: 10px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.classlabel .searchTerm:focus {
+    color: #000;
+}
+
+.searchButton {
+    width: 140px;
+    height: 50px;
+    border: none;
+    background: #fc5;
+    text-align: center;
+    color: #000;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+    outline: none;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.searchButton:hover {
+    background: #fb2;
+}
+
+.main-text {
+    color: #fff;
+    font-size: 64px;
+    font-weight: 300;
+    width: 800px;
+    padding-top: 100px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 100px;
+}
+
+.boxsearch {
+    width: 420px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media screen and (min-width: 747px) {
+    .main-text {
+        padding-top: 100px;
+    }
+
+    .boxsearch {
+        width: 600px;
+    }
+}
+
+@media screen and (max-width: 747px) {
+    .main-text {
+        text-align: center;
+    }
+
+    .boxsearch {
+        width: 420px;
+    }
+
+    .searchButton {
+        font-size: 13px;
+    }
+}

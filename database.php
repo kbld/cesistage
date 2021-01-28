@@ -1,24 +1,27 @@
 <?php
 require('configuration.php');
 
-try {
-	$dbh = new PDO(
-		DATABASE_URL,
-		DATABASE_USER,
-		DATABASE_PASSWORD,
-		array(
-			PDO::ATTR_PERSISTENT => true
-		)
-	);
+function DBConnect() {
+	try {
+		$dbh = new PDO(
+			DATABASE_URL,
+			DATABASE_USER,
+			DATABASE_PASSWORD,
+			array(
+				PDO::ATTR_PERSISTENT => true
+			)
+		);
+		return $dbh;
+	}
 	catch (Exception $e) {
 		die("Unable to connect: " . $e->getMessage());
 	}
 }
 
-public function Register($user) {
-	$pass = password_hash(
+function Register($user) {
+	$password = password_hash(
 		$user['password'],
-		PASSWORD_ARGON2I,
+		PASSWORD_ARGON2ID,
 		[
 			'memory_cost' => 2048,
 			'time_cost' => 4,
@@ -26,38 +29,72 @@ public function Register($user) {
 		]
 	);
 
+	$dbh = DBConnect();
 	try {
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$dbh->beginTransaction();
 
 		$stmt = $dbh->prepare(
 			"INSERT INTO users 
-			(name, lastName, email, username, password, status, enabled, company, group)
+			(name, lastName, email, username, password)
 			VALUES
-			(:name, :lastName, :email, :username, :password, :status, :enabled, :company, :group)"
+			(:name, :lastName, :email, :username, :password)"
 		);
-		$stmt->bindParam(':name', $name);
-		$stmt->bindParam(':lastName', $lastname);
-		$stmt->bindParam(':email', $email);
-		$stmt->bindParam(':username', $username);
+		$stmt->bindParam(':name', $user['name']);
+		$stmt->bindParam(':lastName', $user['lastname']);
+		$stmt->bindParam(':email', $user['email']);
+		$stmt->bindParam(':username', $user['username']);
 		$stmt->bindParam(':password', $password);
-		$stmt->bindParam(':status', $status);
-		$stmt->bindParam(':enabled', 0);
-		$stmt->bindParam(':company', $company);
-		$stmt->bindParam(':group', $group);
 		$stmt->execute();
 
 		$dbh->commit();
+		return true;
 	} catch (Exception $e) {
 		$dbh->rollBack();
-		echo "Failed: " . $e->getMessage();
+		return "Failed: " . $e->getMessage();
 	}
 }
 
-public function GetNumberOfOffers() {
+function Login($user) {
+	$dbh = DBConnect();
+	try {
+		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$dbh->beginTransaction();
+
+		$user_by_username = $dbh->prepare(
+			"SELECT * FROM users WHERE username=(:username)"
+		);
+		$user_by_username->bindParam(':username', $user['username']);
+
+		$user_by_email = $dbh->prepare(
+			"SELECT * FROM users WHERE email=(:email)"
+		);
+		$user_by_email->bindParam(':email', $user['email']);
+
+		$user_by_username->execute();
+		$user_by_email->execute();
+
+		$by_username = $user_by_username->fetch(PDO::FETCH_ASSOC);
+		$by_email = $user_by_email->fetch(PDO::FETCH_ASSOC);
+		if ($by_username) {
+			print_r($by_username);
+		}
+		elseif ($by_email) {
+			print_r($by_email);
+		}
+
+		$dbh->commit();
+		return true;
+	} catch (Exception $e) {
+		$dbh->rollBack();
+		return "Failed: " . $e->getMessage();
+	}
+}
+
+function GetNumberOfOffers() {
 	# code...
 }
 
-public function GetNumberOfOffersOf($type) {
+function GetNumberOfOffersOf($type) {
 	# code...
 }

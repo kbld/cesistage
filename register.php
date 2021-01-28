@@ -1,20 +1,18 @@
 <?php
 require('utils.php');
+require('database.php');
 require_once 'vendor/autoload.php';
 
 $loader = new \Twig\Loader\FilesystemLoader('views');
 $twig = new \Twig\Environment($loader, []);
 
-$errors = array(
-	'nom' => '',
-	'prenom' => '',
-	'username' => '',
-	'email' => '',
-	'password' => '',
-	'password2' => ''
-);
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	$name = '';
+	$lastname = '';
+	$username = '';
+	$email = '';
+	$password = '';
+
 	if (empty($_POST["nom"])) {
 		$errors['nom'] = "Le nom est obligatoire";
 	}
@@ -66,7 +64,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	if ($password != $password2) {
 		$errors['password2'] = $errors['password'] = "Les mots de passe ne sont pas identiques";
 	}
-	echo $twig->render('register.twig', ['errors' => $errors]);
+
+	if (isset($errors)) {
+		echo $twig->render('register.twig', ['errors' => $errors]);
+	} else {
+		$user['name'] = $name;
+		$user['lastname'] = $lastname;
+		$user['username'] = $username;
+		$user['email'] = $email;
+		$user['password'] = $password;
+		$result = Register($user);
+		if (!$result) {
+			$errors['register'] = "Register failed ! Internal server error. Error n°500";
+			echo $twig->render('register.twig', ['errors' => $errors]);
+		}
+		else {
+			header("Location: /");
+			exit;
+		}
+	}
 }
 else {
 	echo $twig->render('register.twig', []);
