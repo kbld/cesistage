@@ -95,9 +95,20 @@ function Login($user) {
 }
 
 function GetNumberOfOffers() {
-	# code...
-}
+	$dbh = DBConnect();
 
-function GetNumberOfOffersOf($type) {
-	# code...
+	try {
+		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$dbh->beginTransaction();
+		$req = $dbh->prepare("SELECT COUNT(*) FROM offers WHERE status=1");
+		$req->execute();
+		
+		$request = $req->fetch(PDO::FETCH_ASSOC);
+		$dbh->commit();
+		return $request['COUNT(*)'];
+	}
+	catch (Exception $e) {
+		$dbh->rollBack();
+		return "Failed: " . $e->getMessage();
+	}
 }
