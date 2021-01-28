@@ -35,3 +35,9 @@ form > input {
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
 }
+
+@media screen and (max-width: 747px) {
+    form {
+        width: 80%;
+    }
+}
