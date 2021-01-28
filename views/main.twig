@@ -3,6 +3,7 @@
 {% block title %}CESI - Recherche de Stage{% endblock %}
 
 {% block style %}
+<link rel="stylesheet" href="/static/css/index.css">
 {% endblock %}
 
 {% block content %}
@@ -20,22 +21,9 @@
             </div>
         </div> laissez-nous vous guider…
     </div>
-    <div class="boxsearch">
-        <div class="search">
-            <input type="text" class="searchTerm" placeholder="Recherchez parmis 84 offres de stage">
-            <button type="submit" class="searchButton">RECHERCHEZ</button>
-        </div>
-    </div>
-</div>
-<div>
-    <div class="little-forme"></div>
-    <div class="sectionupload">
-        <div class="main-txt">Générez ci-dessous un nouveau CV et/ou Lettre de motivation :</div>
-        <div class="button-upload-bloc">
-            <button class="button">CV</button>
-            <input multiple type="file" accept="image/*,application/pdf">
-            <button class="button">Lettre de motivation</button>
-        </div>
+    <div class="search">
+        <input type="text" class="searchTerm" placeholder="Recherchez parmis 84 offres de stage">
+        <button type="submit" class="searchButton">RECHERCHEZ</button>
     </div>
 </div>
 {% endblock %}
