@@ -95,18 +95,13 @@ ul.notes-echelle li label {
 
 .entreprise {
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
     justify-content: space-around;
-    align-items: center;
-    align-content: center;
 }
 
-.entrepriseFavorite {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-around;
-    align-items: center;
-    align-content: center;
+.entreprises {
+    margin-top: 8em;
+    outline: solid;
+    height: 500px;
+    background-color: red;
+    margin-left: 220px;
 }
