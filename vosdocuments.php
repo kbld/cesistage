@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Vérifier si le formulaire a été soumis
 /*if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Vérifie si le fichier a été uploadé sans erreur.

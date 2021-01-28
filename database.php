@@ -76,18 +76,21 @@ function Login($user) {
 
 		$by_username = $user_by_username->fetch(PDO::FETCH_ASSOC);
 		$by_email = $user_by_email->fetch(PDO::FETCH_ASSOC);
-		if ($by_username) {
-			print_r($by_username);
-		}
-		elseif ($by_email) {
-			print_r($by_email);
-		}
 
 		$dbh->commit();
-		return true;
+
+		if ($by_username) {
+			return $by_username;
+		}
+		elseif ($by_email) {
+			return $by_email;
+		}
+		else {
+			return false;
+		}
 	} catch (Exception $e) {
 		$dbh->rollBack();
-		return "Failed: " . $e->getMessage();
+		return false;
 	}
 }
 
