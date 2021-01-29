@@ -3,6 +3,7 @@
     font-size: 15px;
     text-align: center;
     margin-top: 100px;
+    background-color: #000000;
 }
 
 @media screen and (min-width: 1200px) {
@@ -16,8 +17,8 @@ nav {
     width: 225px;
 }
 
-nav > a,
-nav > div {
+nav>a,
+nav>div {
     line-height: 40px;
 }
 
@@ -31,7 +32,7 @@ nav .last {
     border-bottom: 0px;
 }
 
-nav > afd {
+nav>afd {
     border-top: 10px solid blue !important;
 }
 
@@ -42,16 +43,20 @@ nav a {
     text-indent: 10px;
 }
 
-nav + div {
+nav+div {
     background-color: red !important;
 }
 
+
 /* CHECKBOX */
+
 nav input[type="checkbox"] {
     display: none;
 }
 
+
 /* LABEL */
+
 nav label {
     box-sizing: border-box;
     display: block;
@@ -62,9 +67,11 @@ nav label {
     color: #ffc252;
 }
 
+
 /* TRIANGLE */
+
 .nav-dropdown label:after,
-nav .subdropdown > span:after {
+nav .subdropdown>span:after {
     border: 7px solid transparent;
     border-color: #ffffff transparent transparent transparent;
     content: "";
@@ -73,26 +80,29 @@ nav .subdropdown > span:after {
     transition: all .1s ease-in-out;
 }
 
-.nav-label
-.nav-dropdown label:after {
+.nav-label .nav-dropdown label:after {
     transform: translateX(-10px) translateY(16px);
 }
 
-.nav-dropdown input:checked ~ label:after {
+.nav-dropdown input:checked~label:after {
     transform: translateX(-10px) translateY(16px) rotateZ(-180deg);
 }
 
+
 /* TRIANGLE -> dropright */
-nav .subdropdown > span:after {
+
+nav .subdropdown>span:after {
     transform: translateX(-10px) translateY(16px) rotateZ(-90deg);
 }
 
-nav .subdropdown:hover > span:after {
+nav .subdropdown:hover>span:after {
     border-color: #ffffff transparent transparent transparent;
     transform: translateX(-10px) translateY(16px) rotateZ(-60deg);
 }
 
+
 /* SUBMENU -> (dropdown) */
+
 nav .submenu {
     display: block;
     max-height: 0px;
@@ -100,11 +110,11 @@ nav .submenu {
     transition: all 0.2s ease-in-out;
 }
 
-nav input:checked ~ .submenu {
+nav input:checked~.submenu {
     max-height: 400px;
 }
 
-nav .submenu > a > li,
+nav .submenu>a>li,
 nav .submenu span {
     display: block;
     height: 40px;
