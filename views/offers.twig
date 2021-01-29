@@ -12,16 +12,22 @@
     <button type="submit" class="searchButton">RECHERCHEZ</button>
 </form>
 <hr>
-{% for i in offers %}
+{% if attribute(offers, '1') is not defined %}
     <p>
-        {{ i.id }}<br>
-        {{ i.starting }}<br>
-        {{ i.ending }}<br>
-        {{ i.posted }}<br>
-        {{ i.type }}<br>
-        {{ i.status }}<br>
-        {{ i.company }}<br>
-        {{ i.description }}<br>
+        Pas de résultat trouvé.
     </p>
-{% endfor %}
+{% else %}
+    {% for i in offers %}
+        <p>
+            {{ i.id }}<br>
+            {{ i.starting }}<br>
+            {{ i.ending }}<br>
+            {{ i.posted }}<br>
+            {{ i.type }}<br>
+            {{ i.status }}<br>
+            {{ i.company }}<br>
+            {{ i.description }}<br>
+        </p>
+    {% endfor %}
+{% endif %}
 {% endblock %}
