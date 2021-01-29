@@ -17,15 +17,15 @@
     grid-template-columns: 220px 1fr;
 }
 
-#page>nav {
+#page > nav {
     grid-area: nav;
 }
 
-#page>main {
+#page > main {
     grid-area: main;
 }
 
-#page>footer {
+#page > footer {
     grid-area: footer;
 }
 
@@ -59,7 +59,7 @@ hr {
     width: 30px;
     border-radius: 100px;
     margin-top: 3px;
-    background-image: url(https://nagregkendan.desa.id/desa/upload/user_pict/5h9ytx_NoProfileLarge.png);
+    background-image: url(/static/img/5h9ytx_NoProfileLarge.png);
     background-size: 40px;
     background-position: center;
     background-repeat: no-repeat;
@@ -110,9 +110,11 @@ hr {
     .search {
         width: 100vw;
     }
+
     .searchTerm {
         width: 80%;
     }
+
     .searchButton {
         width: 20%;
     }
