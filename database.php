@@ -142,12 +142,21 @@ function SearchOffers($search, $start = 0) {
 		$req->bindParam(':start', $start);
 		$req->bindParam(':search', $search);
 
+		$count = $dbh->prepare("SELECT COUNT(*) FROM offers WHERE title LIKE (:search) AND id>=(:start) AND status=1");
+		$count->bindParam(':start', $start);
+		$count->bindParam(':search', $search);
+
 		$req->execute();
+		$count->execute();
 
 		$request = $req->fetchAll();
+		$affected = $req->fetch(PDO::FETCH_ASSOC);
+
+		$affected_count = $affected['COUNT(*)'] ?? 0;
+
 		$dbh->commit();
 
-		return $request;
+		return ['request' => $request, 'affected' => $affected_count];
 	} catch (Exception $e) {
 		$dbh->rollBack();
 		return "Failed: " . $e->getMessage();
