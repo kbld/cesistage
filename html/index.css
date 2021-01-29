@@ -330,7 +330,6 @@ label,
 .b {
     color: silver;
     font-size: 250%;
-    z-index: ;
     margin-right: 400px;
     text-decoration: none;
 }
@@ -417,7 +416,7 @@ ul.notes-echelle li label {
     width: 300px;
     background-color: white;
     border: 1px solid black;
-    text-align: center ;
+    text-align: center;
     width: 25px;
     background-color: green;
     margin-top: 50px;
@@ -426,7 +425,37 @@ ul.notes-echelle li label {
     margin-right: auto;
 }
 
-.entreprise {
+#pwidget {
+    background-color: lightgray;
+    width: 254px;
+    padding: 2px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    text-align: left;
+    border: 1px solid gray;
+}
+
+#progressbar {
+    width: 250px;
+    padding: 1px;
+    background-color: white;
+    border: 1px solid black;
+    height: 28px;
+}
+
+#indicator {
+    width: 0px;
+    background-image: url("shaded-green.png");
+    height: 28px;
+    margin: 0;
+}
+
+#progressnum {
+    text-align: center;
+    width: 250px;
+}
+
+Code Javascript .entreprise {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -437,11 +466,9 @@ ul.notes-echelle li label {
 
 .entrepriseFavorites {
     margin-top: 8em;
-        height: 500px;
-        background-color: red;
+    height: 500px;
+    background-color: red;
 }
-
-
 
 
 /*FOOTER*/

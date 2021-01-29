@@ -17,15 +17,15 @@
     grid-template-columns: 220px 1fr;
 }
 
-#page > nav {
+#page>nav {
     grid-area: nav;
 }
 
-#page > main {
+#page>main {
     grid-area: main;
 }
 
-#page > footer {
+#page>footer {
     grid-area: footer;
 }
 
@@ -36,7 +36,7 @@
     background-repeat: no-repeat;
     background-size: 1000px;
     background-position: center;
-    background-image: url(https://www.i-trekkings.net/wp-content/uploads/2018/08/gr34-plouguerneau-brest-gregoryrohart-9194.jpg);
+    background-image: url(/static/img/gr34-plouguerneau-brest-gregoryrohart-9194.jpg);
 }
 
 .stabilo {
@@ -110,11 +110,9 @@ hr {
     .search {
         width: 100vw;
     }
-
     .searchTerm {
         width: 80%;
     }
-
     .searchButton {
         width: 20%;
     }

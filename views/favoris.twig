@@ -20,6 +20,7 @@
         <li><a href="#"> CV envoyé à cette entreprise</a></li>
         <li><a href="# ">Lettre de motivation envoyée à cette entreprise</a></li>
         <div>Date a laquelle vous devez faire la relance:</div>
+        <label for="date">Jour pour la relance : </label><input type="date" name="relance" id="relance"><br>
         <div class="progress">
 
             <progress value="54" max="100"></progress>
@@ -37,10 +38,26 @@
         <div>Commentaires</div>
         <li><a href="#"> CV envoyé à cette entreprise</a></li>
         <li><a href="# ">Lettre de motivation envoyée à cette entreprise</a></li>
-        <div>Date a laquelle vous devez faire la relance:</div>
-        <div class="progress">
-            <progress value="54" max="100"></progress>
+        <div>Date a laquelle vous devez faire la relance:</div> 
+        <div class="form-wrap">
+            <form class="form">
+                <input class="datepicker" type="date" />
+                <input class="submit" type="button" value="Get date" />
+            </form>
         </div>
+            <p class="result"></p>
+
+       
+       <div class="progress-wrap progress" data-progress-percent="100">
+  <div class="progress-bar progress"></div>
+  <label class="item"></label>
+</div>
+
     </div>
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/favoris.js"> </script>
+
 {% endblock %}

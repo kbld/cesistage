@@ -47,7 +47,7 @@ a[href*="intent"] {
 
 .rating a {
     float: right;
-    color: #aaa;
+    color: rgb(240, 232, 232);
     text-decoration: none;
     -webkit-transition: color .4s;
     -moz-transition: color .4s;
@@ -85,12 +85,32 @@ ul.notes-echelle li label {
 }
 
 .progress {
-    width: 300px;
-    padding: 2px;
-    background-color: white;
-    border: 1px solid black;
-    text-align: center width: 25px;
-    background-color: green;
+    width: 180px;
+    height: 28px;
+}
+
+.progress-wrap {
+    background: green;
+    margin: 20px 0;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #000;
+    border-radius: 4px;
+}
+
+.progress-wrap .progress-bar {
+    background: #3f3f3f;
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+
+.item {
+    position: absolute;
+    top: 7px;
+    left: 10px;
+    color: #fff;
+    font-size: 14px;
 }
 
 .entreprise {
@@ -100,8 +120,11 @@ ul.notes-echelle li label {
 
 .entreprises {
     margin-top: 8em;
-    outline: solid;
     height: 500px;
-    background-color: red;
+    background-color: white;
+    border-radius: 5px;
     margin-left: 220px;
+    -webkit-box-shadow: 0 -1px 4px 0 rgba(26, 26, 26, 0.08), 0 4px 8px 0 rgba(26, 26, 26, 0.12);
+    box-shadow: 0 -1px 4px 0 rgba(26, 26, 26, 0.08), 0 4px 8px 0 rgba(26, 26, 26, 0.12);
+    width: 350px;
 }
