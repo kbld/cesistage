@@ -84,27 +84,6 @@ ul.notes-echelle li label {
     cursor: pointer;
 }
 
-.progress {
-    width: 180px;
-    height: 28px;
-}
-
-.progress-wrap {
-    background: green;
-    margin: 20px 0;
-    overflow: hidden;
-    position: relative;
-    border: 1px solid #000;
-    border-radius: 4px;
-}
-
-.progress-wrap .progress-bar {
-    background: #3f3f3f;
-    left: 0;
-    position: absolute;
-    top: 0;
-}
-
 .item {
     position: absolute;
     top: 7px;
