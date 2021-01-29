@@ -10,7 +10,7 @@
 }
 
 .main-logo {
-    background-image: url(https://www.cesi.fr/wp-content/themes/cesi/static/logo/default.svg);
+    background-image: url(/static/img/default.svg);
     background-color: #ffffff;
     width: 220px;
     height: 120px;
