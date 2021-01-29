@@ -1,0 +1,27 @@
+{% extends "base/base.twig" %}
+
+{% block title %}CESI - Recherche de Stage{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="/static/css/index.css">
+{% endblock %}
+
+{% block content %}
+<form action="/offers" method="get" accept-charset="utf-8" class="search">
+    <input type="text" class="searchTerm" name="search" placeholder="Recherchez parmis {{ offers_number }} offres de stages, d'alternances et d'emplois">
+    <button type="submit" class="searchButton">RECHERCHEZ</button>
+</form>
+<hr>
+{% for i in offers %}
+    <p>
+        {{ i.id }}<br>
+        {{ i.starting }}<br>
+        {{ i.ending }}<br>
+        {{ i.posted }}<br>
+        {{ i.type }}<br>
+        {{ i.status }}<br>
+        {{ i.company }}<br>
+        {{ i.description }}<br>
+    </p>
+{% endfor %}
+{% endblock %}

@@ -1,5 +1,5 @@
 <?php
-require('configuration.php');
+require 'configuration.php';
 
 function DBConnect() {
 	try {
@@ -8,12 +8,11 @@ function DBConnect() {
 			DATABASE_USER,
 			DATABASE_PASSWORD,
 			array(
-				PDO::ATTR_PERSISTENT => true
+				PDO::ATTR_PERSISTENT => true,
 			)
 		);
 		return $dbh;
-	}
-	catch (Exception $e) {
+	} catch (Exception $e) {
 		die("Unable to connect: " . $e->getMessage());
 	}
 }
@@ -25,7 +24,7 @@ function Register($user) {
 		[
 			'memory_cost' => 2048,
 			'time_cost' => 4,
-			'threads' => 3
+			'threads' => 3,
 		]
 	);
 
@@ -35,7 +34,7 @@ function Register($user) {
 		$dbh->beginTransaction();
 
 		$stmt = $dbh->prepare(
-			"INSERT INTO users 
+			"INSERT INTO users
 			(name, lastName, email, username, password)
 			VALUES
 			(:name, :lastName, :email, :username, :password)"
@@ -81,11 +80,9 @@ function Login($user) {
 
 		if ($by_username) {
 			return $by_username;
-		}
-		elseif ($by_email) {
+		} elseif ($by_email) {
 			return $by_email;
-		}
-		else {
+		} else {
 			return false;
 		}
 	} catch (Exception $e) {
@@ -102,12 +99,56 @@ function GetNumberOfOffers() {
 		$dbh->beginTransaction();
 		$req = $dbh->prepare("SELECT COUNT(*) FROM offers WHERE status=1");
 		$req->execute();
-		
+
 		$request = $req->fetch(PDO::FETCH_ASSOC);
 		$dbh->commit();
 		return $request['COUNT(*)'];
+	} catch (Exception $e) {
+		$dbh->rollBack();
+		return "Failed: " . $e->getMessage();
 	}
-	catch (Exception $e) {
+}
+
+function GetOffers($start = 0) {
+	$dbh = DBConnect();
+
+	try {
+		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$dbh->beginTransaction();
+
+		$req = $dbh->prepare("SELECT * FROM offers WHERE id>=(:start) AND status=1 LIMIT 100");
+		$req->bindParam(':start', $start);
+
+		$req->execute();
+
+		$request = $req->fetchAll();
+		$dbh->commit();
+
+		return $request;
+	} catch (Exception $e) {
+		$dbh->rollBack();
+		return "Failed: " . $e->getMessage();
+	}
+}
+
+function SearchOffers($search, $start = 0) {
+	$dbh = DBConnect();
+
+	try {
+		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$dbh->beginTransaction();
+
+		$req = $dbh->prepare("SELECT * FROM offers WHERE title LIKE (:search) AND id>=(:start) AND status=1 ORDER BY `starting` LIMIT 100");
+		$req->bindParam(':start', $start);
+		$req->bindParam(':search', $search);
+
+		$req->execute();
+
+		$request = $req->fetchAll();
+		$dbh->commit();
+
+		return $request;
+	} catch (Exception $e) {
 		$dbh->rollBack();
 		return "Failed: " . $e->getMessage();
 	}
