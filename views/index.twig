@@ -4,11 +4,12 @@
 
 {% block style %}
 <link rel="stylesheet" href="/static/css/index.css">
+<link rel="stylesheet" href="/static/css/search.css">
 {% endblock %}
 
 {% block content %}
-<div class="main-img">
-    <div class="main-text">Vous recherchez
+<content>
+    <h1>Vous recherchez
         <div id=flip>
             <div>
                 <div>Une Alternance</div>
@@ -19,11 +20,11 @@
             <div>
                 <div>Un Avenir</div>
             </div>
-        </div> laissez-nous vous guider…
-    </div>
-    <div class="search">
-        <input type="text" class="searchTerm" placeholder="Recherchez parmis {{ offers }} offres de stages, d'alternances et d'emplois">
-        <button type="submit" class="searchButton">RECHERCHEZ</button>
-    </div>
-</div>
+        </div> laissez-nous vous guider
+    </h1>
+    <form action="search.html" method="get" accept-charset="utf-8">
+        <input type="search" name="search" placeholder="Recherchez parmis {{ offers }} offres">
+        <input type="submit" value="RECHERCHER">
+    </form>
+</content>
 {% endblock %}

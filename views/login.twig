@@ -7,17 +7,15 @@
 {% endblock %}
 
 {% block content %}
-<div class="main-img">
-    <section class="form">
-        <form action="/login" method="post" accept-charset="utf-8" class="center">
-            <label id="username">Votre nom d'utilisateur :</label>
-            <input id="username" type="text" name="username" placeholder="JD.2020" required>
-            <span class="error">{{ errors['username'] }}</span>
-            <label id="password">Votre mot de passe :</label>
-            <input id="password" type="password" name="password" placeholder="********" required>
-            <span class="error">{{ errors['password'] }}</span>
-            <input type="submit" name="submit" value="Se connecter" class="button">
-        </form>
-    </section>
-</div>
+<section>
+    <form action="/login" method="post" accept-charset="utf-8" class="center">
+        <label id="username">Votre nom d'utilisateur :</label>
+        <input id="username" type="text" name="username" placeholder="JD.2020" required>
+        <span class="error">{{ errors['username'] }}</span>
+        <label id="password">Votre mot de passe :</label>
+        <input id="password" type="password" name="password" placeholder="********" required>
+        <span class="error">{{ errors['password'] }}</span>
+        <input type="submit" name="submit" value="Se connecter">
+    </form>
+</section>
 {% endblock %}
