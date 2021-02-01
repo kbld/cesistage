@@ -1,69 +1,42 @@
-<nav class="navbar">
-    <ul class="">
-        <li>            
-            <a href="#" class="nav-label">
-                <div href="#" class="profile-img"></div>
-                <nav>
-                    <div class="nav-dropdown">
-                      <input id="nav-console" type="checkbox"/>
-                      <label class="classlabel" for="nav-console">Mon profil</label>
-                      <ul class="submenu">
-                        <div class="linknav">Vos informations</div>
-                        <div class="linknav">Documents</div>
-                      </ul>
-                    </div>
-                  </nav>
-            </a>
-            <a href="#" class="nav-label-here">Accueil</a>
-            <a href="#" class="nav-label">Vos Candidatures</a>
-            <a href="#" class="nav-label">Offres de stage</a>
-            <a href="#" class="nav-label">Favoris</a>
-            <div href="#" class="main-logo"></div>
-        </li>
-    </ul>
-</nav>
-
-
-<!--responsive-->
-
-<nav class="navbarresponsive">
-    <div href="#" class="main-logo"></div>
-    <div class="buttonrespon">
-
-
-  
-    </div>
- <nav class="spanbox" role="navigation">
-  <div id="menuToggle">
-    <input type="checkbox" id="myInput"/>
-    <span></span>
-    <span></span>
-    <span></span>
-    <ul class="mobilemenu">
-         <li>            
-            <a href="#" class="nav-label">
-                <div href="#" class="profile-img"></div>
-                <nav>
-                    <div class="nav-dropdown">
-                      <input id="nav-console" type="checkbox"/>
-                      <label class="classlabel" for="nav-console">Mon profil</label>
-                      <ul class="submenu">
-                        <div class="linknav">Vos informations</div>
-                        <div class="linknav">Documents</div>
-                      </ul>
-                    </div>
-                  </nav>
-            </a>
-            <a href="#" class="nav-label-here">Accueil</a>
-            <a href="#" class="nav-label">Vos Candidatures</a>
-            <a href="#" class="nav-label">Offres de stage</a>
-            <a href="#" class="nav-label">Favoris</a>
-        </li>
-    </ul>
-  </div>
-</nav>
-
-
-       
-        
+<nav id="navbar">
+	<div class="mobile-menu">
+		<input type="checkbox" onclick="toogleMobile()" id="toogle-menu">
+		<label for="toogle-menu" class="toogle-menu">&#9776;</label>
+		<img src="/static/img/logo.png" alt="Application logo" width="220" height="70">
+	</div>
+	<ul id="navmenu">
+		<li>
+			<nav>
+				<div class="submenu-dropdown">
+					<img src="/static/img/DefaultProfil.png" alt="Photo de profil de user.name" class="profil">
+					<label for="toogle-submenu">Mon profil
+						<input id="toogle-submenu" onclick="toogleSubmenu()" type="checkbox" />
+					</label>
+				</div>
+				<ul class="hide" id="submenu">
+					<li>
+						<a href="" title="Vos informations personelles">Vos informations</a>
+					</li>
+					<li>
+						<a href="" title="Vos documents">Documents</a>
+					</li>
+				</ul>
+			</nav>
+		</li>
+		<li class="focus">
+			<a href="#">Accueil</a>
+		</li>
+		<li>
+			<a href="">Vos Candidatures</a>
+		</li>
+		<li>
+			<a href="">Offres de stage</a>
+		</li>
+		<li>
+			<a href="">Favoris</a>
+		</li>
+		<li class="app-logo">
+			<img src="/static/img/logo.png" alt="Application logo" width="220" height="120">
+		</li>
+	</ul>
 </nav>

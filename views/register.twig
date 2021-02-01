@@ -7,29 +7,27 @@
 {% endblock %}
 
 {% block content %}
-<div class="main-img">
-    <section class="form">
-        <form action="/register" method="post" accept-charset="utf-8" class="center">
-            <label id="nom">Votre nom :</label>
-            <input id="nom" type="text" name="nom" placeholder="Jean" required>
-            <span class="error">{{ errors['nom'] }}</span>
-            <label id="prenom">Votre prénom :</label>
-            <input id="prenom" type="text" name="prenom" placeholder="Dupond" required>
-            <span class="error">{{ errors['prenom'] }}</span>
-            <label id="username">Votre nom d'utilisateur :</label>
-            <input id="username" type="text" name="username" placeholder="JD.2020" required>
-            <span class="error">{{ errors['username'] }}</span>
-            <label id="email">Votre adresse mail :</label>
-            <input id="email" type="email" name="email" placeholder="jean.dupond@viacesi.fr" required>
-            <span class="error">{{ errors['email'] }}</span>
-            <label id="password">Votre mot de passe :</label>
-            <input id="password" type="password" name="password" placeholder="********" required>
-            <span class="error">{{ errors['password'] }}</span>
-            <label id="password2">Veuillez confirmer votre mot de passe :</label>
-            <input id="password2" type="password" name="password2" placeholder="********" required>
-            <span class="error">{{ errors['password2'] }}</span>
-            <input type="submit" name="submit" value="S'inscrire" class="button">
-        </form>
-    </section>
-</div>
+<section>
+    <form action="/register" method="post" accept-charset="utf-8" class="center">
+        <label id="nom">Votre nom :</label>
+        <input id="nom" type="text" name="nom" placeholder="Jean" required>
+        <span class="error">{{ errors['nom'] }}</span>
+        <label id="prenom">Votre prénom :</label>
+        <input id="prenom" type="text" name="prenom" placeholder="Dupond" required>
+        <span class="error">{{ errors['prenom'] }}</span>
+        <label id="username">Votre nom d'utilisateur :</label>
+        <input id="username" type="text" name="username" placeholder="JD.2020" required>
+        <span class="error">{{ errors['username'] }}</span>
+        <label id="email">Votre adresse mail :</label>
+        <input id="email" type="email" name="email" placeholder="jean.dupond@viacesi.fr" required>
+        <span class="error">{{ errors['email'] }}</span>
+        <label id="password">Votre mot de passe :</label>
+        <input id="password" type="password" name="password" placeholder="********" required>
+        <span class="error">{{ errors['password'] }}</span>
+        <label id="password2">Veuillez confirmer votre mot de passe :</label>
+        <input id="password2" type="password" name="password2" placeholder="********" required>
+        <span class="error">{{ errors['password2'] }}</span>
+        <input type="submit" name="submit" value="S'inscrire">
+    </form>
+</section>
 {% endblock %}

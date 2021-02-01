@@ -4,47 +4,27 @@
     padding: 0;
 }
 
-#main {
-    margin-left: 60px;
-}
-
-#page {
+body {
+    width: 100vw;
+    height: 100vh;
     display: grid;
-    width: 100%;
-    height: 1500px;
-    grid-template-areas: "nav main" "nav  main" "nav footer";
-    grid-template-rows: 50px 1fr 130px;
-    grid-template-columns: 220px 1fr;
+    grid-template-rows: 6.5fr 0.5fr;
+    grid-template-columns: 300px 1fr;
+    grid-template-areas: "navbar content" "nabvar footer";
+    color: #fff;
 }
 
-#page > nav {
-    grid-area: nav;
+main {
+    grid-area: content;
 }
 
-#page > main {
-    grid-area: main;
-}
-
-#page > footer {
-    grid-area: footer;
-}
-
-.main-img {
-    background-color: #aaa;
-    width: 100%;
-    height: 600px;
-    background-repeat: no-repeat;
-    background-size: 1000px;
-    background-position: center;
-    background-image: url(/static/img/gr34-plouguerneau-brest-gregoryrohart-9194.jpg);
-}
-
-.stabilo {
-    background-color: hsla(39, 90%, 55%, 0.5);
-    -webkit-box-decoration-break: clone;
-    box-decoration-break: clone;
-    margin: 0 -.15em;
-    padding: 0 .15em;
+h1 {
+    color: #fff;
+    font-size: 4em;
+    font-weight: 300;
+    width: 800px;
+    display: block;
+    margin: 100px auto 100px auto;
 }
 
 hr {
@@ -54,41 +34,18 @@ hr {
     height: 8px;
 }
 
-.profile-img {
-    height: 30px;
-    width: 30px;
-    border-radius: 100px;
-    margin-top: 3px;
-    background-image: url(/static/img/5h9ytx_NoProfileLarge.png);
-    background-size: 40px;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.search {
-    display: flex;
-    justify-content: center;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-.searchTerm {
-    width: 40%;
-    border: none;
-    outline: none;
-    color: #555;
+input {
     height: 50px;
-    padding-left: 10px;
-    border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
-}
-
-.classlabel .searchTerm:focus {
+    border: none;
     color: #000;
+    font-size: 15px;
+    outline: none;
+    border-radius: 5px;
+    padding-left: 10px;
 }
 
-.searchButton {
-    width: 140px;
+input[type=submit] {
+    width: 10%;
     height: 50px;
     border: none;
     background: #fc5;
@@ -98,38 +55,18 @@ hr {
     font-size: 15px;
     font-weight: 700;
     outline: none;
-    border-bottom-right-radius: 5px;
-    border-top-right-radius: 5px;
-}
-
-.searchButton:hover {
-    background: #fb2;
+    border-radius: 5px;
 }
 
 @media screen and (max-width: 747px) {
-    .search {
-        width: 100vw;
+    body {
+        grid-template-rows: 0.5fr 6.5fr 0.5fr;
+        grid-template-columns: 100vw;
+        grid-template-areas: "navbar" "content" "footer";
     }
 
-    .searchTerm {
-        width: 80%;
-    }
-
-    .searchButton {
-        width: 20%;
-    }
-}
-
-@media screen and (min-width: 747px) {
-    .main-text {
-        color: #ffffff;
-        font-size: 64px;
-        font-weight: 300;
-        width: 800px;
-        padding-top: 100px;
-        display: block;
-        margin-right: auto;
-        margin-left: auto;
-        margin-bottom: 100px;
+    h1 {
+        font-size: 2em;
+        margin: 0 0 50px 0;
     }
 }

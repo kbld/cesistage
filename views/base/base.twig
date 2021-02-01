@@ -8,20 +8,12 @@
 <body>
 	{% include("base/navbar.twig") %}
 
-{#
-	<header>
-	{% include("header.twig") %}
-	</header>
-#}
-
 	<main>
 	{% block content %}
 	{% endblock %}
 	</main>
 
-	<footer>
-        {% include("base/footer.twig") %}
-    </footer>
+    {% include("base/footer.twig") %}
 
 	{% include("base/scripts.twig") %}
 	{% block scripts %}

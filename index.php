@@ -8,4 +8,4 @@ $twig = new \Twig\Environment($loader, []);
 
 $numbers_of_offers = GetNumberOfOffers();
 
-echo $twig->render('main.twig', ['offers' => $numbers_of_offers]);
+echo $twig->render('index.twig', ['offers' => $numbers_of_offers]);
