@@ -1,3 +1,11 @@
+Options -Indexes
+IndexIgnore *
+
+<FilesMatch "^\.">
+Order Allow,Deny
+Deny from all
+</FilesMatch>
+
 RewriteEngine On
 
 ## hide .php extension

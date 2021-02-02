@@ -4,13 +4,12 @@
 
 {% block style %}
 <link rel="stylesheet" href="/static/css/search.css">
-<link rel="stylesheet" href="/static/css/offers.css">
 {% endblock %}
 
 {% block content %}
 <content>
     <form action="/search" method="get" accept-charset="utf-8">
-        <input type="search" name="search" placeholder="Recherchez parmis {{ offers_number }} offres">
+        <input type="search" name="search" placeholder="Recherchez parmis {{ offers_number }} offres" value="{{ search}}">
         <input type="submit" value="RECHERCHER">
     </form>
 </content>
