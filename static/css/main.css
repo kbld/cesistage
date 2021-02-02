@@ -12,10 +12,12 @@ body {
     grid-template-columns: 300px 1fr;
     grid-template-areas: "navbar content" "nabvar footer";
     color: #fff;
+    background: #000;
 }
 
 main {
     grid-area: content;
+    background: url(/static/img/bg.jpg) 0 top no-repeat;
 }
 
 h1 {
@@ -63,6 +65,10 @@ input[type=submit] {
         grid-template-rows: 0.5fr 6.5fr 0.5fr;
         grid-template-columns: 100vw;
         grid-template-areas: "navbar" "content" "footer";
+    }
+
+    main {
+        overflow: hidden;
     }
 
     h1 {

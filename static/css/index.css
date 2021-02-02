@@ -43,13 +43,3 @@
         margin-top: -2.8em;
     }
 }
-
-main {
-    background: url(/static/img/bg.jpg) 0 top no-repeat;
-}
-
-@media screen and (max-width: 747px) {
-    main {
-        overflow: hidden;
-    }
-}

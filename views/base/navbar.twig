@@ -14,26 +14,38 @@
 					</label>
 				</div>
 				<ul class="hide" id="submenu">
-					<li>
-						<a href="" title="Vos informations personelles">Vos informations</a>
-					</li>
-					<li>
-						<a href="" title="Vos documents">Documents</a>
-					</li>
+					{% if user.is_authenticated %}
+						<li>
+							<a href="/user" title="Vos informations personelles">Vos informations</a>
+						</li>
+						<li>
+							<a href="/documents" title="Vos documents">Documents</a>
+						</li>
+						<li>
+							<a href="/logout" title="Se déconnecter">Déconnexion</a>
+						</li>
+					{% else %}
+						<li>
+							<a href="/login" title="Connexion">Se connecter</a>
+						</li>
+						<li>
+							<a href="/register" title="Inscription">S'inscrire</a>
+						</li>
+					{% endif %}
 				</ul>
 			</nav>
 		</li>
-		<li class="focus">
-			<a href="#">Accueil</a>
+		<li>
+			<a href="/">Accueil</a>
 		</li>
 		<li>
-			<a href="">Vos Candidatures</a>
+			<a href="/candidatures">Vos Candidatures</a>
 		</li>
 		<li>
-			<a href="">Offres de stage</a>
+			<a href="/offers">Offres de stage</a>
 		</li>
 		<li>
-			<a href="">Favoris</a>
+			<a href="/favoris">Favoris</a>
 		</li>
 		<li class="app-logo">
 			<img src="/static/img/logo.png" alt="Application logo" width="220" height="120">

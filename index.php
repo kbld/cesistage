@@ -1,11 +1,7 @@
 <?php
-session_start();
-require_once 'vendor/autoload.php';
-require 'database.php';
-
-$loader = new \Twig\Loader\FilesystemLoader('views');
-$twig = new \Twig\Environment($loader, []);
+require_once 'database.php';
+require_once 'utils.php';
 
 $numbers_of_offers = GetNumberOfOffers();
 
-echo $twig->render('index.twig', ['offers' => $numbers_of_offers]);
+Render('index.twig', ['offers' => $numbers_of_offers]);
