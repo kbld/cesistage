@@ -1,12 +1,7 @@
 <?php
-session_start();
-
-require('utils.php');
-require('database.php');
+require_once 'utils.php';
+require_once 'database.php';
 require_once 'vendor/autoload.php';
-
-$loader = new \Twig\Loader\FilesystemLoader('views');
-$twig = new \Twig\Environment($loader, []);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$username = '';
@@ -33,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 	if (!$db_user) {
 		$errors['user'] = 'Unknown user or email';
-		echo $twig->render('login.twig', ['errors' => $errors]);
+		Render('login.twig', ['errors' => $errors]);
 	}
 	else {
 		if (password_verify($user['password'], $db_user['password'])) {
@@ -50,10 +45,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		}
 		else {
 			$errors['password'] = 'Bad password';
-			echo $twig->render('login.twig', ['errors' => $errors]);
+			Render('login.twig', ['errors' => $errors]);
 		}
 	}
 }
 else {
-	echo $twig->render('login.twig', []);
+	Render('login.twig', []);
 }

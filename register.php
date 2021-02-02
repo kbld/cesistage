@@ -1,11 +1,6 @@
 <?php
-session_start();
-require('utils.php');
-require('database.php');
-require_once 'vendor/autoload.php';
-
-$loader = new \Twig\Loader\FilesystemLoader('views');
-$twig = new \Twig\Environment($loader, []);
+require_once('utils.php');
+require_once('database.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$name = '';
@@ -67,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	}
 
 	if (isset($errors)) {
-		echo $twig->render('register.twig', ['errors' => $errors]);
+		Render('register.twig', ['errors' => $errors]);
 	} else {
 		$user['name'] = $name;
 		$user['lastname'] = $lastname;
@@ -77,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$result = Register($user);
 		if (!$result) {
 			$errors['register'] = "Register failed ! Internal server error. Error n°500";
-			echo $twig->render('register.twig', ['errors' => $errors]);
+			Render('register.twig', ['errors' => $errors]);
 		}
 		else {
 			header("Location: /");
@@ -86,5 +81,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	}
 }
 else {
-	echo $twig->render('register.twig', []);
+	Render('register.twig', []);
 }

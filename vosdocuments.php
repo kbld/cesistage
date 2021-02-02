@@ -34,9 +34,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 }
 
-
-
-
 $titre = $_GET["titre"];
 $files = $_GET["document"];
 
