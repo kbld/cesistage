@@ -41,6 +41,7 @@ nav label {
 }
 
 .app-logo {
+    display: flex;
     background: #fff;
     padding: 0 0;
     justify-content: center;

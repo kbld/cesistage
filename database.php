@@ -1,5 +1,5 @@
 <?php
-require 'configuration.php';
+require_once 'configuration.php';
 
 function DBConnect() {
 	try {
@@ -97,7 +97,7 @@ function GetNumberOfOffers() {
 	try {
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$dbh->beginTransaction();
-		$req = $dbh->prepare("SELECT COUNT(*) FROM offers WHERE status=1");
+		$req = $dbh->prepare("SELECT COUNT(*) FROM offers WHERE OfferStatus=1");
 		$req->execute();
 
 		$request = $req->fetch(PDO::FETCH_ASSOC);
@@ -116,7 +116,7 @@ function GetOffers($start = 0) {
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$dbh->beginTransaction();
 
-		$req = $dbh->prepare("SELECT * FROM offers WHERE id>=(:start) AND status=1 LIMIT 100");
+		$req = $dbh->prepare("SELECT * FROM offers JOIN company ON offers.company=company.id WHERE offers.id>=(:start) AND OfferStatus=1 LIMIT 100");
 		$req->bindParam(':start', $start);
 
 		$req->execute();
@@ -138,7 +138,7 @@ function SearchOffers($search, $start = 0) {
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$dbh->beginTransaction();
 
-		$req = $dbh->prepare("SELECT * FROM offers WHERE title LIKE (:search) AND id>=(:start) AND status=1 ORDER BY `starting` LIMIT 100");
+		$req = $dbh->prepare("SELECT * FROM offers JOIN company ON offers.company=company.id WHERE OfferTitle LIKE (:search) AND offers.id>=(:start) AND OfferStatus=1 ORDER BY OfferStarting LIMIT 100");
 		$req->bindParam(':start', $start);
 		$req->bindParam(':search', $search);
 
