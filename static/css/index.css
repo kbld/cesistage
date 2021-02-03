@@ -1,3 +1,10 @@
+content {
+    display: flex;
+    flex-flow: wrap column;
+    align-items: center;
+    height: 100%;
+}
+
 #flip {
     height: 1em;
     overflow: hidden;

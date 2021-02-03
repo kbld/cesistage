@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 3073 928" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-37191.9,-137288)">
+        <g transform="matrix(8.45411,0,0,3.39674,33248.2,131506)">
+            <g transform="matrix(1,0,0,1,-167.631,-75.8613)">
+                <g>
+                    <g transform="matrix(0.118286,0,0,0.2944,-3951.15,-38715.4)">
+                        <path d="M38820.1,138417L39460.8,138417L39460.8,138472L38764.3,138472L38764.3,137776L38820.1,137776L38820.1,138417Z" style="fill:rgb(31,22,0);"/>
+                    </g>
+                    <g transform="matrix(0.118286,0,0,0.2944,-3886.11,-38783.3)">
+                        <path d="M38764.3,137951L38764.3,137776L39460.8,137776L39460.8,138472L39285.3,138472L39285.3,137951L38764.3,137951Z" style="fill:rgb(31,22,0);"/>
+                    </g>
+                    <g transform="matrix(0.0840767,0,0,0.209257,-2590.18,-27009.5)">
+                        <text x="38504.4px" y="138439px" style="font-family:'Poppins-SemiBold', 'Poppins';font-weight:600;font-size:379.935px;">CeSea</text>
+                    </g>
+                </g>
+            </g>
+            <g transform="matrix(0.060142,0,0,0.149687,-1663.31,-18880.3)">
+                <g transform="matrix(1,0,0,1,-0.0909595,0)">
+                    <text x="38211.1px" y="138439px" style="font-family:'Poppins-Regular', 'Poppins';font-size:329.428px;">Naviguez dans</text>
+                </g>
+                <g transform="matrix(1,0,0,1,-0.0909595,0)">
+                    <text x="38211.1px" y="138802px" style="font-family:'Poppins-Regular', 'Poppins';font-size:329.428px;">l&apos;océan professionel</text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

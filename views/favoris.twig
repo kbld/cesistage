@@ -4,50 +4,29 @@
 
 {% block style %}
 <link rel="stylesheet" href="/static/css/favoris.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 {% endblock %}
 
 {% block content %}
-<div class="entreprise">
-    <div class="entreprises">Entreprise
-        <div class="rating rating2">
-            <a href="#5" title="Give 5 stars">★</a>
-            <a href="#4" title="Give 4 stars">★</a>
-            <a href="#3" title="Give 3 stars">★</a>
-            <a href="#2" title="Give 2 stars">★</a>
-            <a href="#1" title="Give 1 star">★</a>
-        </div>
-        <div>Commentaires</div>
-        <li><a href="#"> CV envoyé à cette entreprise</a></li>
-        <li><a href="# ">Lettre de motivation envoyée à cette entreprise</a></li>
-        <div>Date a laquelle vous devez faire la relance:</div>
-        <label for="date">Jour pour la relance : </label><input type="date" name="relance" id="relance"><br>
-       
-
-           
+<content>
+    <div id="1">
+        <span class="fa fa-star" onclick="change(1, '1')" id="_1"></span>
+        <span class="fa fa-star" onclick="change(2, '1')" id="_2"></span>
+        <span class="fa fa-star" onclick="change(3, '1')" id="_3"></span>
+        <span class="fa fa-star" onclick="change(4, '1')" id="_4"></span>
+        <span class="fa fa-star" onclick="change(5, '1')" id="_5"></span>
     </div>
-    <div class="entreprises">Entreprise
-
-        <div class="rating rating2">
-            <a href="#5" title="Give 5 stars">★</a>
-            <a href="#4" title="Give 4 stars">★</a>
-            <a href="#3" title="Give 3 stars">★</a>
-            <a href="#2" title="Give 2 stars">★</a>
-            <a href="#1" title="Give 1 star">★</a>
-        </div>
-        <div>Commentaires</div>
-        <li><a href="#"> CV envoyé à cette entreprise</a></li>
-        <li><a href="# ">Lettre de motivation envoyée à cette entreprise</a></li>
-        <div>Date a laquelle vous devez faire la relance:</div> 
-        
-        <label for="date">Jour pour la relance : </label><input type="date" name="relance" id="relance"><br>
-       
-</div>
-
+    <div id="0">
+        <span class="fa fa-star" onclick="change(1, '0')" id="_1"></span>
+        <span class="fa fa-star" onclick="change(2, '0')" id="_2"></span>
+        <span class="fa fa-star" onclick="change(3, '0')" id="_3"></span>
+        <span class="fa fa-star" onclick="change(4, '0')" id="_4"></span>
+        <span class="fa fa-star" onclick="change(5, '0')" id="_5"></span>
     </div>
+</content>
 </div>
 {% endblock %}
 
 {% block scripts %}
-<script src="/static/js/favoris.js"> </script>
-
+<script src="/static/js/favoris.js"></script>
 {% endblock %}

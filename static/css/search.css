@@ -1,9 +1,9 @@
 form {
     display: flex;
     justify-content: center;
-    margin-right: auto;
-    margin-left: auto;
+    margin: none;
     margin-top: 4em;
+    width: 100%;
 }
 
 input[type=search] {
@@ -46,4 +46,34 @@ input[type=submit]:hover {
     input[type=submit] {
         width: 30%;
     }
+}
+
+#results {
+    display: flex;
+    flex-flow: wrap column;
+    align-items: center;
+    height: 100%;
+}
+
+#results > div {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 50%;
+    padding: 10px;
+    margin-top: 2em;
+    background: #fff;
+    color: #000;
+    border-radius: 5px;
+    border: solid 2px #eee;
+}
+
+.label {
+    width: 10%;
+    margin: 0.5em;
+    padding: 0.5em;
+    text-align: center;
+}
+
+.stage {
+    background: #3e9;
 }

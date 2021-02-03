@@ -13,23 +13,24 @@
         <input type="submit" value="RECHERCHER">
     </form>
 </content>
-<content>
-    {% if match >= 0 %}
-        <p>
+<content id="results">
+    {% if match <= 0 %}
+        <div>
             Pas de résultat trouvé.
-        </p>
+        </div>
     {% else %}
         {% for i in offers %}
-            <p>
-                {{ i.id }}<br>
-                {{ i.starting }}<br>
-                {{ i.ending }}<br>
-                {{ i.posted }}<br>
-                {{ i.type }}<br>
-                {{ i.status }}<br>
-                {{ i.company }}<br>
-                {{ i.description }}<br>
-            </p>
+            <div>
+                <h3>{{ i.OfferTitle }}</h3>
+                <span class="label {{ i.OfferType }}">{{ i.OfferType }}</span>
+                <img src="{{ i.CompanyLogo }}" alt="Logo de {{ i.CompanyName }}">
+                <span>Du {{ i.OfferStarting }} au {{ i.OfferEnding }}</span>
+                <span>Posté le : {{ i.OfferPosted }}</span>
+                <span>Description :</span>
+                <div>
+                    {{ i.OfferDescription }}
+                </div>
+            </div>
         {% endfor %}
     {% endif %}
 </content>
