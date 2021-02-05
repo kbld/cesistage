@@ -14,7 +14,7 @@
 					</label>
 				</div>
 				<ul class="hide" id="submenu">
-					{% if user.is_authenticated %}
+					{% if session.login %}
 						<li>
 							<a href="/user" title="Vos informations personelles">Vos informations</a>
 						</li>

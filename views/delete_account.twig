@@ -1,0 +1,34 @@
+{% extends "base/base.twig" %}
+
+{% block title %}CESI - Supression du compte{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="/static/css/delete_account.css">
+{% endblock %}
+
+{% block content %}
+<section>
+    <form action="/delete_account" method="post" accept-charset="utf-8" class="center">
+        <label id="sure">
+            Êtes vous sure de vouloir supprimer votre compte ?
+            Cette action est irréversible et supprimera :
+            <ul>
+                <li>Vos fichiers, tels que vos CV, vos lettres de motivations et votre image de profil. (NON IMPLÉMENTÉ)</li>
+                <li>Vos réponses aux offres de stage.</li>
+                <li>Votre profil et toutes inforations liés à ce dernier.</li>
+            </ul>
+            Veuillez noter cepandant que pour des raisons techniques une partie
+            de ces informations sera encore accessibles durant quelques jours.<br>
+            De plus nous conserverons votre historique de connexions au serveur,
+            tel que précisé dans l'article ××× de la loi ××× relative à ××× …<br>
+            bidule et chose…<br>
+            C'est pas très pro ici mais on doit remplir avec les textes légaux
+            relatifs à l'hébergeur, à l'état et ur tas de trucs plus ou moins sympa à faire…<br>
+            Pour plus d'informations veuillez contacter <a href="mailto:contact@cesea.eu?subject=[Supression de compte] Informations">CESEA service client</a>
+        </label>
+        <input type="hidden" name="delete" value="delete">
+        <a href="/user" class="button">Non, ramenez-moi à ma page de profil.</a>
+        <input type="submit" name="submit" value="Oui, je veux supprimer mon compte">
+    </form>
+</section>
+{% endblock %}

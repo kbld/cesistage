@@ -1,7 +1,6 @@
 <?php
 require_once 'utils.php';
 require_once 'database.php';
-require_once 'vendor/autoload.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$username = '';

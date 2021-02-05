@@ -1,11 +1,97 @@
 {% extends "base/base.twig" %}
 
-{% block title %}CESI - Recherche de Stage{% endblock %}
+{% block title %}CESEA - Profile de {{ user.lastName }} {{ user.name }}{% endblock %}
 
 {% block style %}
-<link rel="stylesheet" href="/static/css/index.css">
+<link rel="stylesheet" href="/static/css/user.css">
 {% endblock %}
 
-
 {% block content %}
+{% if user %}
+	<section class="user_card">
+		<img src='{{ ProfilePicture ?? "/static/img/DefaultProfil.png" }}' alt="">
+		<h2>{{ user.lastName }} {{ user.name }}</h2>
+		<div id="username">{{ user.username }}</div>
+		<div>{{ user.email }}</div>
+		<div>
+			{{ user.Description }}
+		</div>
+	</section>
+	{% if user.username == session.username %}
+		<hr>
+		<section>
+			<form action="/user" method="post" accept-charset="utf-8">
+				<div class="safe">Changer mes informations personelles.</div>
+				<label for="nom">Votre nom :</label>
+				<input id="nom" type="text" name="nom" value="{{ user.name }}" required>
+				<div class="error">{{ errors['nom'] }}</div>
+				<label for="prenom">Votre prénom :</label>
+				<input id="prenom" type="text" name="prenom" value="{{ user.lastName }}" required>
+				<div class="error">{{ errors['prenom'] }}</div>
+				<label for="email">Votre adresse mail :</label>
+				<input id="email" type="email" name="email" value="{{ user.email }}" required>
+				<div class="error">{{ errors['email'] }}</div>
+
+				<label for="description">Votre description :</label>
+				<textarea id="description" type="text" name="description" required>{{ user.Description }}</textarea>
+				<div class="error">{{ errors['description'] }}</div>
+
+				<input type="hidden" name="personal" value="true">
+				<label class="submit">
+					<input type="reset" name="reset" value="Annuler">
+					<input type="submit" name="submit" value="Mettre à jour">
+				</label>
+			</form>
+		</section>
+		<hr>
+		<section>
+			<form action="/user" method="post" accept-charset="utf-8">
+				<div class="safe">Changement de mot de passe</div>
+				<label for="old_password">Votre ancien mot de passe :</label>
+				<input id="old_password" type="password" name="old_password" placeholder="********" required>
+				<div class="error">{{ errors['old_password'] }}</div>
+				<label for="password">Votre nouveau mot de passe :</label>
+				<input id="password" type="password" name="password" placeholder="********" required>
+				<div class="error">{{ errors['password'] }}</div>
+				<label for="password2">Veuillez confirmer votre nouveau mot de passe :</label>
+				<input id="password2" type="password" name="password2" placeholder="********" required>
+				<div class="error">{{ errors['password2'] }}</div>
+				<input type="hidden" name="password_up" value="true">
+				<label class="submit">
+					<input type="reset" name="reset" value="Annuler">
+					<input type="submit" name="submit" value="Changer mon mot de passe">
+				</label>
+			</form>
+		</section>
+		<hr>
+		<section>
+			<form action="/user" method="post" accept-charset="utf-8">
+				<div class="safe">Vous avez changé d'emploi ?</div>
+				<label for="company">Choisisez votre entreprise actuelle ci-dessous :</label>
+				<input list="company_list" id="company" type="text" name="company" required>
+				<datalist id="company_list">
+					{% for i in companys %}
+						<option value="{{ i.CompanyName }}" />
+					{% endfor %}
+				</datalist>
+
+				<div class="error">{{ errors['company'] }}</div>
+				<input type="hidden" name="change_company" value="true">
+				<label class="submit">
+					<input type="reset" name="reset" value="Annuler">
+					<input type="submit" name="submit" value="Changer mon statut d'emploi">
+				</label>
+			</form>
+		</section>
+		<hr>
+		<section class="delete">
+ 			<div class="delete_text">Supression du compte</div>
+			<a href="/delete_account"><button name="submit" href="/delete_account">Supprimer mon compte</button></a>
+		</section>
+	{% endif %}
+{% else %}
+	<section class="fail">
+		Nous n'avons pas trouvé d'utilisateur corespondant
+	</section>
+{% endif %}
 {% endblock %}

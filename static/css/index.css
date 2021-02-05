@@ -1,8 +1,7 @@
 content {
-    display: flex;
-    flex-flow: wrap column;
-    align-items: center;
+    display: block;
     height: 100%;
+    margin-bottom: 4em;
 }
 
 #flip {
