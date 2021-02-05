@@ -162,3 +162,138 @@ function SearchOffers($search, $start = 0) {
 		return "Failed: " . $e->getMessage();
 	}
 }
+
+function GetUserInfo($user) {
+	$dbh = DBConnect();
+
+	try {
+		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$dbh->beginTransaction();
+
+		$req = $dbh->prepare("SELECT * FROM users LEFT JOIN company ON (users.company IS NOT NULL AND users.company=company.id) WHERE users.username=(:user)");
+		$req->bindParam(':user', $user);
+
+		$req->execute();
+
+		$request = $req->fetch(PDO::FETCH_ASSOC);
+
+		$dbh->commit();
+
+		return $request;
+	} catch (Exception $e) {
+		$dbh->rollBack();
+		return false;
+	}
+}
+
+function GetCompanyList() {
+	$dbh = DBConnect();
+
+	try {
+		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$dbh->beginTransaction();
+
+		$req = $dbh->prepare("SELECT CompanyName FROM company");
+
+		$req->execute();
+
+		$request = $req->fetchAll();
+
+		$dbh->commit();
+
+		return $request;
+	} catch (Exception $e) {
+		$dbh->rollBack();
+		return false;
+	}
+}
+
+function DeleteAccount($username) {
+	$dbh = DBConnect();
+
+	try {
+		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$dbh->beginTransaction();
+
+		$req = $dbh->prepare("DELETE FROM `users` WHERE `username`=(:username)");
+		$req->bindParam(':username', $username);
+
+		$req->execute();
+
+		$dbh->commit();
+
+		return true;
+	} catch (Exception $e) {
+		$dbh->rollBack();
+		return false;
+	}
+}
+
+function UpdateAccount($user) {
+	$dbh = DBConnect();
+
+	try {
+		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$dbh->beginTransaction();
+
+		$req = $dbh->prepare("UPDATE `users` SET `name`=(:name), `lastName`=(:lastname), `email`=(:email), `Description`=(:description) WHERE `username`=(:username)");
+		$req->bindParam(':name', $user['name']);
+		$req->bindParam(':lastname', $user['lastname']);
+		$req->bindParam(':email', $user['email']);
+		$req->bindParam(':description', $user['description']);
+		$req->bindParam(':username', $user['username']);
+
+		$req->execute();
+
+		$dbh->commit();
+
+		return true;
+	} catch (Exception $e) {
+		$dbh->rollBack();
+		return false;
+	}
+}
+
+function UpdatePassword($user) {
+	$dbh = DBConnect();
+
+	try {
+		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$dbh->beginTransaction();
+
+		$req = $dbh->prepare("UPDATE `users` SET `password`=(:password) WHERE `username`=(:username)");
+		$req->bindParam(':password', $user['password']);
+		$req->bindParam(':username', $user['username']);
+
+		$req->execute();
+
+		$dbh->commit();
+
+		return true;
+	} catch (Exception $e) {
+		$dbh->rollBack();
+		return false;
+	}
+}
+
+function ChangeUserCompany($user) {
+	$dbh = DBConnect();
+
+	try {
+		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$dbh->beginTransaction();
+
+		$req = $dbh->prepare("UPDATE `users` SET `company`=(SELECT id FROM company WHERE `CompanyName`=(:company)) WHERE `username` = (:username)");
+		$req->bindParam(':company', $user['company']);
+		$req->bindParam(':username', $user['username']);
+
+		$req->execute();
+
+		$dbh->commit();
+
+		return true;
+	} catch (Exception $e) {
+		$dbh->rollBack();
+		return false;
+	}
+}

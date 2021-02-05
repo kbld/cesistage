@@ -1,4 +1,5 @@
 function toogleSubmenu() {
+  document.getElementById("submenu").classList.toggle("hide");
   document.getElementById("submenu").classList.toggle("show");
 }
 

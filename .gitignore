@@ -2,4 +2,4 @@ adminer/
 cache/*
 vendor/
 .vs/
-.DS_Store
+**.DS_Store

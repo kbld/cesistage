@@ -1,0 +1,38 @@
+main {
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: center;
+    width: 100%;
+}
+
+section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+section form {
+    width: 50%;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    padding: 10px;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    margin-top: 10px;
+    background-color: rgba(200, 200, 200, 0.5);
+    border-radius: 5px;
+}
+
+section form label {
+    color: #000;
+}
+
+li {
+    list-style: inside;
+    margin-left: 10px;
+}
+
+input[type="submit"] {
+    margin-left: auto;
+}
