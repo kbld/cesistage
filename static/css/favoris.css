@@ -1,14 +1,22 @@
-<<<<<<< Updated upstream
-.checked {
-    color: orange;
+.entreprises {
+    box-shadow: 0 -1px 4px 0 rgba(26, 26, 26, 0.08), 0 4px 8px 0 rgba(26, 26, 26, 0.12);
+    width: 300px;
+    height: 400px;
+    margin-top: 20px;
+    margin-bottom: 30%;
 }
-=======
-.entreprises {}
 
-.entreprise {}
+.entreprise {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: stretch;
+}
 
 .rating {
-    width: 226px;
+    width: 300px;
     margin: 0 auto 1em;
     font-size: 45px;
     overflow: hidden;
@@ -39,4 +47,3 @@
 .rating2 a {
     float: none
 }
->>>>>>> Stashed changes
