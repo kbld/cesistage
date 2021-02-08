@@ -30,15 +30,16 @@
         		<div class="sectionupload">
 			<div class="files-txt">Enregistrez un nouveau fichiers PDF :</div>
 			<div class="blocdocument"></div>
+			{{result}}
 
 
-		<form action="" method="post">
+		<form action="/documents" method="post" enctype="multipart/form-data">
 
         <label class="titlemainfiles" for="fileUpload" required="">Titre de votre document :</label><br>
                     <input class="inputpdf" autocomplete="off" type="text" required="" name="titre"><br><br>
 
 			<label class="btnupload">
-				<input class="btnupload" id="files" name="document" accept=".pdf" type="file">
+				<input class="btnupload" name="document" accept=".pdf" type="file">
 			</label><br>
 			<input class="btnsave" autocomplete="off" type="submit" name="submit" value="Enregistrer votre document PDF">
 		</form>
