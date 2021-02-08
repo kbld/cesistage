@@ -142,7 +142,7 @@ function SearchOffers($search, $start = 0) {
 		$req->bindParam(':start', $start);
 		$req->bindParam(':search', $search);
 
-		$count = $dbh->prepare("SELECT COUNT(*) FROM offers WHERE title LIKE (:search) AND id>=(:start) AND status=1");
+		$count = $dbh->prepare("SELECT COUNT(*) FROM offers WHERE OfferTitle LIKE (:search) AND id>=(:start) AND status=1");
 		$count->bindParam(':start', $start);
 		$count->bindParam(':search', $search);
 
