@@ -1,49 +1,63 @@
-.entreprises {
-    box-shadow: 0 -1px 4px 0 rgba(26, 26, 26, 0.08), 0 4px 8px 0 rgba(26, 26, 26, 0.12);
-    width: 300px;
-    height: 400px;
-    margin-top: 20px;
-    margin-bottom: 30%;
-}
-
-.entreprise {
+main {
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    flex-flow: row wrap;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-start;
     align-content: stretch;
 }
 
+content {
+    box-shadow: 0 -1px 4px 0 rgba(26, 26, 26, 0.08), 0 4px 8px 0 rgba(26, 26, 26, 0.12);
+    width: 20%;
+    height: 20em;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    background: rgba(100, 100, 100, 0.4);
+}
+
+input[type='date'] {
+    height: 2em;
+}
+
 .rating {
-    width: 300px;
     margin: 0 auto 1em;
-    font-size: 45px;
+    font-size: 2em;
     overflow: hidden;
-}
-
-.rating a {
-    float: right;
     color: #aaa;
-    text-decoration: none;
-    -webkit-transition: color .4s;
-    -moz-transition: color .4s;
-    -o-transition: color .4s;
+    pointer-events: none;
+}
+
+.rating span {
     transition: color .4s;
+    pointer-events: auto;
 }
 
-.rating a:hover,
-.rating a:hover~a,
-.rating a:focus,
-.rating a:focus~a {
-    color: orange;
-    cursor: pointer;
+.rating:hover span,
+.rating:focus span {
+    color: #fa0;
 }
 
-.rating2 {
-    direction: rtl;
+.rating span:hover ~ span,
+.rating span:focus ~ span {
+    color: #aaa;
 }
 
-.rating2 a {
-    float: none
+.checked {
+    color: #fa0;
+}
+
+.comments {
+    display: flex;
+    flex-flow: column;
+}
+
+@media screen and (max-width: 747px) {
+    main {
+        flex-flow: column;
+    }
+
+    content {
+        width: 85%;
+    }
 }
