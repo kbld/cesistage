@@ -297,3 +297,27 @@ function ChangeUserCompany($user) {
 		return false;
 	}
 }
+
+function GetPermissions($id) {
+	$dbh = DBConnect();
+
+	try {
+		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$dbh->beginTransaction();
+
+		$req = $dbh->prepare("SELECT * FROM `gps` WHERE `id`=(:id)");
+		$req->bindParam(':id', $id);
+
+		$req->execute();
+		$request = $req->fetch(PDO::FETCH_ASSOC);
+
+		$dbh->commit();
+
+		$request['GroupRights'] = unserialize($request['GroupRights']);
+
+		return $request;
+	} catch (Exception $e) {
+		$dbh->rollBack();
+		return false;
+	}
+}
