@@ -142,7 +142,7 @@ function SearchOffers($search, $start = 0) {
 		$req->bindParam(':start', $start);
 		$req->bindParam(':search', $search);
 
-		$count = $dbh->prepare("SELECT COUNT(*) FROM offers WHERE title LIKE (:search) AND id>=(:start) AND status=1");
+		$count = $dbh->prepare("SELECT COUNT(*) FROM offers WHERE OfferTitle LIKE (:search) AND id>=(:start) AND status=1");
 		$count->bindParam(':start', $start);
 		$count->bindParam(':search', $search);
 
@@ -292,6 +292,30 @@ function ChangeUserCompany($user) {
 		$dbh->commit();
 
 		return true;
+	} catch (Exception $e) {
+		$dbh->rollBack();
+		return false;
+	}
+}
+
+function GetPermissions($id) {
+	$dbh = DBConnect();
+
+	try {
+		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$dbh->beginTransaction();
+
+		$req = $dbh->prepare("SELECT * FROM `gps` WHERE `id`=(:id)");
+		$req->bindParam(':id', $id);
+
+		$req->execute();
+		$request = $req->fetch(PDO::FETCH_ASSOC);
+
+		$dbh->commit();
+
+		$request['GroupRights'] = unserialize($request['GroupRights']);
+
+		return $request;
 	} catch (Exception $e) {
 		$dbh->rollBack();
 		return false;
