@@ -42,10 +42,12 @@ input[type='date'] {
 .rating span:hover ~ span,
 .rating span:focus ~ span {
     color: #aaa;
+    cursor: pointer;
 }
 
 .checked {
     color: #fa0;
+    cursor: pointer;
 }
 
 .comments {
