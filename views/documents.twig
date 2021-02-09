@@ -12,40 +12,35 @@
 	<main>
 	
 	<div class="txt-title">Vos Documents</div>
-	<div class="sectiondocument">
-		<div class="sectionlibrary">
-			<div class="lib-txt">Librairie de vos fichiers PDF :</div>
-			<div class="blocdocument"></div>
-		</div>
-
-	<div class="boxlibrary">
-
-
-	<div class="pdflibrary"></div>
-	<div class="pdflibrary"></div>
-	<div class="pdflibrary"></div>
-
-	</div>
+		<div class="sectiondocument">
+		
+				
+	
 
         		<div class="sectionupload">
-			<div class="files-txt">Enregistrez un nouveau fichiers PDF :</div>
-			<div class="blocdocument"></div>
-			{{result}}
+					<div class="files-txt">Enregistrez un nouveau fichiers PDF :</div>
+					<div class="blocdocument"></div>
+					{{result}}
 
 
-		<form action="/documents" method="post" enctype="multipart/form-data">
+					<form action="/documents" method="post" enctype="multipart/form-data">
 
-        <label class="titlemainfiles" for="fileUpload" required="">Titre de votre document :</label><br>
+       			 	<label class="titlemainfiles" for="fileUpload" required="">Titre de votre document :</label><br>
                     <input class="inputpdf" autocomplete="off" type="text" required="" name="titre"><br><br>
 
-			<label class="btnupload">
-				<input class="btnupload" name="document" accept=".pdf" type="file">
-			</label><br>
-			<input class="btnsave" autocomplete="off" type="submit" name="submit" value="Enregistrer votre document PDF">
-		</form>
+					<label class="btnupload">
+					<input class="btnupload" name="document" accept=".pdf" type="file">
+					</label><br>
+					<input class="btnsave" autocomplete="off" type="submit" name="submit" value="Enregistrer votre document PDF">
+					</form>
 
-	</div>
-			</div>
+					</div>
+				<div class="filesUploaded"> 
+				<div class= "files-txt">Documents enregistrés</div>
+				{{data|raw}}
+				</div>
+
+		</div>
 
 			
 
