@@ -36,6 +36,24 @@ content {
     color: #ffffff;
 }
 
+.boxtitle{
+display: flex;
+}
+
+.boximgcorp{
+    height:80px;
+    width: 140px;
+    background-color: white;
+    border: none;
+    outline: none;
+    margin-left: 180px;
+    border-bottom-left-radius: 20px;
+    background-size: auto;
+    object-fit: cover;
+    margin-top: -64px;
+    border-top-right-radius: 5px;
+}
+
 input[type='date'] {
     height: 2em;
 }
@@ -46,7 +64,7 @@ input[type='date'] {
     overflow: hidden;
     color: rgb(255, 255, 255);
     pointer-events: none;
-    margin-top: 20px;
+    margin-top: 0px;
     
 }
 
