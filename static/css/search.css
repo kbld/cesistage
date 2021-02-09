@@ -11,7 +11,7 @@ input[type=search] {
     border: none;
     outline: none;
     color: #555;
-    height: 50px;
+    height: 4em;
     padding-left: 10px;
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
@@ -20,7 +20,7 @@ input[type=search] {
 }
 
 input[type=submit] {
-    padding: 0;
+    padding: 0 10px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 5px;
