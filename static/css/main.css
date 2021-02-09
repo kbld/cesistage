@@ -6,16 +6,17 @@
 
 body {
     display: grid;
-    grid-template-rows: 6.5fr 0.5fr;
+    grid-template-rows: 1fr min-content;
     grid-template-columns: 300px 1fr;
     grid-template-areas: "navbar content" "nabvar footer";
     color: #fff;
     background: #000;
+    height: 100vh;
 }
 
 main {
     grid-area: content;
-    background: url(/static/img/bg.jpg) 0 top no-repeat;
+    background: url(/static/img/bg.jpg) 100% top no-repeat fixed;
 }
 
 h1 {
