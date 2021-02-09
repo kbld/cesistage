@@ -1,4 +1,4 @@
-# Site de recherche de stage pour CESI
+# Site de recherche de stage
 
 ## Good practices
 

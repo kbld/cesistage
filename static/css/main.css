@@ -16,7 +16,8 @@ body {
 
 main {
     grid-area: content;
-    background: url(/static/img/bg.jpg) 100% top no-repeat fixed;
+    background: url(/static/img/bg.jpg) top no-repeat fixed;
+    background-size: 100%;
 }
 
 h1 {

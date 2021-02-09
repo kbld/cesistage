@@ -5,11 +5,5 @@ footer {
     font-size: 15px;
     text-align: center;
     margin-top: 2em;
-    width: 95%;
-}
-
-@media screen and (max-width: 747px) {
-    footer {
-        margin-top: 2em;
-    }
+    width: 100%;
 }

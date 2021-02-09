@@ -1,0 +1,64 @@
+{% extends "base/base.twig" %}
+
+{% block title %}Éditer un utilisateur{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="/static/css/admin/users.css">
+{% endblock %}
+
+{% block content %}
+<section>
+    <form action="/admin/users" method="post" accept-charset="utf-8">
+        <div class="safe">Changement des informations personelles.</div>
+        <label for="nom">Nom :</label>
+        <input id="nom" type="text" name="nom" value="{{ user.name }}" required>
+        <div class="error">{{ errors['nom'] }}</div>
+        <label for="prenom">Prénom :</label>
+        <input id="prenom" type="text" name="prenom" value="{{ user.lastName }}" required>
+        <div class="error">{{ errors['prenom'] }}</div>
+        <label for="username">Nom d'utilisateur :</label>
+        <input id="username" type="text" name="username" value="{{ user.username }}" required>
+        <div class="error">{{ errors['username'] }}</div>
+        <label for="email">Adresse mail :</label>
+        <input id="email" type="email" name="email" value="{{ user.email }}" required>
+        <div class="error">{{ errors['email'] }}</div>
+
+        <label for="description">Description :</label>
+        <textarea id="description" type="text" name="description" required>{{ user.Description }}</textarea>
+        <div class="error">{{ errors['description'] }}</div>
+
+        <input type="hidden" name="personal" value="true">
+        <label class="submit">
+            <input type="reset" name="reset" value="Annuler">
+            <input type="submit" name="submit" value="Mettre à jour">
+        </label>
+    </form>
+</section>
+<hr>
+<section>
+    <form action="/admin/users" method="post" accept-charset="utf-8">
+        <div class="safe">Entreprise</div>
+        <label for="company">Changement d'entreprise :</label>
+        <input list="company_list" id="company" type="text" name="company" required>
+        <datalist id="company_list">
+            {% for i in companys %}
+                <option value="{{ i.CompanyName }}" />
+            {% endfor %}
+        </datalist>
+
+        <div class="error">{{ errors['company'] }}</div>
+        <input type="hidden" name="change_company" value="true">
+        <label class="submit">
+            <input type="reset" name="reset" value="Annuler">
+            <input type="submit" name="submit" value="Valider">
+        </label>
+    </form>
+</section>
+<hr>
+<section class="delete">
+    <div class="delete_text">Toggle account</div>
+    <a href="/admin/disable_account"><button name="submit">Désactiver le compte</button></a>
+    <div class="delete_text">Supression du compte</div>
+    <a href="/admin/delete_account"><button name="submit">Supprimer le compte</button></a>
+</section>
+{% endblock %}

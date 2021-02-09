@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+	{% include("base/head.twig") %}
+	<title>{% block title%}{% endblock %}</title>
+	{% block style %}
+	{% endblock %}
+</head>
+<body>
+	{% include("base/navbar.twig") %}
+
+	<main>
+	{% block content %}
+	{% endblock %}
+	</main>
+
+    {% include("base/footer.twig") %}
+
+	{% include("base/scripts.twig") %}
+	{% block scripts %}
+	{% endblock %}
+</body>
+</html>
