@@ -1,0 +1,35 @@
+{% extends "base/base.twig" %}
+
+{% block title %}Éditer une entreprise{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="/static/css/admin/company.css">
+{% endblock %}
+
+{% block content %}
+<section>
+    <form action="/admin/company" method="post" accept-charset="utf-8">
+        <div class="safe">Changement des informations d'entreprise.</div>
+        <label for="nom">Nom :</label>
+        <input id="nom" type="text" name="nom" value="{{ user.name }}" required>
+        <div class="error">{{ errors['nom'] }}</div>
+
+        <label for="description">Description :</label>
+        <textarea id="description" type="text" name="description" required>{{ user.Description }}</textarea>
+        <div class="error">{{ errors['description'] }}</div>
+
+        <input type="hidden" name="info" value="true">
+        <label class="submit">
+            <input type="reset" name="reset" value="Annuler">
+            <input type="submit" name="submit" value="Mettre à jour">
+        </label>
+    </form>
+</section>
+<hr>
+<section class="delete">
+    <div class="delete_text">Toggle company</div>
+    <a href="/admin/disable_account"><button name="submit">Désactiver l'entreprise</button></a>
+    <div class="delete_text">Supression de l'entreprise</div>
+    <a href="/admin/delete_account"><button name="submit">Supprimer l'entreprise</button></a>
+</section>
+{% endblock %}

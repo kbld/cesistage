@@ -7,73 +7,44 @@
 {% endblock %}
 
 {% block content %}
-
-<body>
-	<main>
-	
 	<div class="txt-title">Créer votre offre</div>
 	<div class="sectiondocument">
-
 	<div class="marginform"></div>
+	<div class="sectionupload">
+	<div class="files-txt">Formulaire de création d'offre</div>
+	<div class="blocdocument"></div>
 
-        		<div class="sectionupload">
-			<div class="files-txt">Formulaire de création d'offre</div>
-			<div class="blocdocument"></div>
-
-
-		<form action="" method="post">
-
+	<form action="" method="post">
         <label class="titlemainfiles" for="fileUpload" required="">Nom de votre Entreprise :</label><br>
         <input class="inputpdf" autocomplete="off" type="text" required="" name="titre"><br><br>
-
-
-
- <label class="titlemainfiles" for="fileUpload" required="">Logo de votre entreprise :</label><br>
-<label class="btnupload">
-				<input class="btnupload" id="files" name="document" accept=".pdf" type="file">
-			</label><br>
-
-
-
+        <label class="titlemainfiles" for="fileUpload" required="">Logo de votre entreprise :</label><br>
+        <label class="btnupload">
+        	<input class="btnupload" id="files" name="document" accept=".pdf" type="file">
+        </label><br>
         <label class="titlemainfiles" for="fileUpload" required="">Votre numéro de téléphone :</label><br>
         <input class="inputpdf" autocomplete="off" type="tel" required="" name="titre"><br><br>
-
-
-
         <label class="titlemainfiles" for="fileUpload" required="">Votre adresse email :</label><br>
         <input class="inputpdf" autocomplete="off" type="email" required="" name="titre"><br><br>
-
-		 <label class="titlemainfiles" for="fileUpload" required="">Lieu de l'offre :</label><br>
+		<label class="titlemainfiles" for="fileUpload" required="">Lieu de l'offre :</label><br>
         <input class="inputpdf" autocomplete="off" type="adress" required="" name="titre"><br><br>
-
-	<label class="titlemainfiles" for="fileUpload" required="">Type d'offre :</label><br>
-       <select class="inputtype" name="type" id="pet-select">
-    <option value="">--Type--</option>
-    <option value="stage">Stage</option>
-    <option value="emploi">Emploi</option>
-    <option value="alternance">Alternance</option>
-</select>
-
-
-        <label class="titlemainfiles" for="fileUpload" required="">Description bréve de l'offre :</label><br>
-       <textarea class="inputpdf" autocomplete="off" type="text" required="" name="titre"></textarea><br><br>
+		<label class="titlemainfiles" for="fileUpload" required="">Type d'offre :</label><br>
+	    <select class="inputtype" name="type" id="pet-select">
+		    <option value="">--Type--</option>
+		    <option value="stage">Stage</option>
+		    <option value="emploi">Emploi</option>
+		    <option value="alternance">Alternance</option>
+		</select>
 
 
-			<input class="btnsave" autocomplete="off" type="submit" name="submit" value="Publiez votre offre">
-		</form>
-
-	</div>
-			</div>
-
-			
+	    <label class="titlemainfiles" for="fileUpload" required="">Description bréve de l'offre :</label><br>
+		<textarea class="inputpdf" autocomplete="off" type="text" required="" name="titre"></textarea><br><br>
 
 
-	</main>
+		<input class="btnsave" autocomplete="off" type="submit" name="submit" value="Publiez votre offre">
+	</form>
+{% endblock %}
 
-	<script src="/static/js/toogleMenu.js"></script>
-	<script src="/static/js/favoris.js"></script>
-
-
-
-</body>
+{% block scripts %}
+<script src="/static/js/toogleMenu.js"></script>
+<script src="/static/js/favoris.js"></script>
 {% endblock %}

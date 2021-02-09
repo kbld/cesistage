@@ -321,3 +321,47 @@ function GetPermissions($id) {
 		return false;
 	}
 }
+
+function GetUsersList() {
+	$dbh = DBConnect();
+
+	try {
+		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$dbh->beginTransaction();
+
+		$req = $dbh->prepare("SELECT * FROM users");
+
+		$req->execute();
+
+		$request = $req->fetchAll();
+
+		$dbh->commit();
+
+		return $request;
+	} catch (Exception $e) {
+		$dbh->rollBack();
+		return false;
+	}
+}
+
+function GetCompaniesList() {
+	$dbh = DBConnect();
+
+	try {
+		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$dbh->beginTransaction();
+
+		$req = $dbh->prepare("SELECT * FROM company");
+
+		$req->execute();
+
+		$request = $req->fetchAll();
+
+		$dbh->commit();
+
+		return $request;
+	} catch (Exception $e) {
+		$dbh->rollBack();
+		return false;
+	}
+}

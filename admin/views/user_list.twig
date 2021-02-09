@@ -1,0 +1,45 @@
+{% extends "base/base.twig" %}
+
+{% block title %}Liste des utilisateurs{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="/static/css/admin/users.css">
+{% endblock %}
+
+{% block content %}
+<content>
+    <table>
+        <caption>Liste des utilisateurs</caption>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Nom d'utilisateur</th>
+                <th>Email</th>
+                <th>Status</th>
+                <th>Activé</th>
+                <th>Entreprise</th>
+                <th>Groupes</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in users %}
+                <tr>
+                    <td><a href="/admin/users?edit={{ i.username }}">{{ i.id }}</a></td>
+                    <td><a href="/admin/users?edit={{ i.username }}">{{ i.name }}</a></td>
+                    <td><a href="/admin/users?edit={{ i.username }}">{{ i.LastName }}</a></td>
+                    <td><a href="/admin/users?edit={{ i.username }}">{{ i.username }}</a></td>
+                    <td><a href="/admin/users?edit={{ i.username }}">{{ i.email }}</a></td>
+                    <td><a href="/admin/users?edit={{ i.username }}">{{ i.status }}</a></td>
+                    <td><a href="/admin/users?edit={{ i.username }}">{{ i.enabled }}</a></td>
+                    <td><a href="/admin/users?edit={{ i.username }}">{{ i.company }}</a></td>
+                    <td><a href="/admin/users?edit={{ i.username }}">{{ i.user_groups }}</a></td>
+                    <td><a href="/admin/users?edit={{ i.username }}">{{ i.Description[:20] }}</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</content>
+{% endblock %}
