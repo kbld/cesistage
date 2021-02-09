@@ -365,3 +365,26 @@ function GetCompaniesList() {
 		return false;
 	}
 }
+
+function GetCompanyInfo($name) {
+	$dbh = DBConnect();
+
+	try {
+		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$dbh->beginTransaction();
+
+		$req = $dbh->prepare("SELECT * FROM company WHERE CompanyName=(:name)");
+		$req->bindParam(':name', $name);
+
+		$req->execute();
+
+		$request = $req->fetch(PDO::FETCH_ASSOC);
+
+		$dbh->commit();
+
+		return $request;
+	} catch (Exception $e) {
+		$dbh->rollBack();
+		return false;
+	}
+}

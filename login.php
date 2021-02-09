@@ -34,6 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			$_SESSION['id'] = $db_user['id'];
 			$_SESSION['username'] = $db_user['username'];
 			$_SESSION['salt'] = random_bytes(16);
+			$_SESSION['group'] = $db_user['user_groups'];
 
 			$_SESSION['hash'] = hash_pbkdf2("sha3-512", SECRET, $_SESSION['salt'], HASH_ITERATIONS, 0);
 			$_SESSION['token'] = base64_encode($db_user['id']) . '.' . $_SESSION['hash'] . '.' . base64_encode($db_user['username']);
