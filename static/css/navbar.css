@@ -116,9 +116,11 @@ nav label {
         cursor: pointer;
         z-index: 2;
         background-color: #fc5;
-        color: #000;
-        font-size: 3.5em;
-        font-weight: bold;
+        color: rgb(0, 0, 0);
+        font-size: 3em;
+        font-weight: 500;
+        padding-left: 7px;
+        padding-top: 3px;
     }
 
     .no-transform {

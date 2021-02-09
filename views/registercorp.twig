@@ -1,75 +1,64 @@
 {% extends "base/base.twig" %}
 
-{% block title %}CESI - Création votre Profil entreprise{% endblock %}
+{% block title %}CESI - Création votre Profil entreprise
+{% endblock %}
 
 {% block style %}
-<link rel="stylesheet" href="/static/css/registercorp.css">
+	<link rel="stylesheet" href="/static/css/registercorp.css">
 {% endblock %}
 
 {% block content %}
 
-<body>
-	<main>
-	
-	<div class="txt-title">Créer votre profil entreprise</div>
-	<div class="sectiondocument">
+	<body>
+		<main>
 
-	<div class="marginform"></div>
+			<div class="txt-title">Créer votre profil entreprise</div>
+			<div class="sectiondocument">
 
-        		<div class="sectionupload">
-			<div class="files-txt">Formulaire de création de profil entreprise</div>
-			<div class="blocdocument"></div>
+				<div class="marginform"></div>
 
-
-		<form action="" method="post">
-
-        <label class="titlemainfiles" for="fileUpload" required="">Nom de votre Entreprise :</label><br>
-        <input class="inputpdf" autocomplete="off" type="text" required="" name="titre"><br><br>
+				<div class="sectionupload">
+					<div class="files-txt">Formulaire de création de profil entreprise</div>
+					<div class="blocdocument"></div>
 
 
+					<form action="" method="post">
 
- <label class="titlemainfiles" for="fileUpload" required="">Logo de votre entreprise :</label><br>
-<label class="btnupload">
-				<input class="btnupload" id="files" name="document" accept=".pdf" type="file">
-			</label><br>
-
+						<label class="titlemainfiles" for="fileUpload" required="">Nom de votre Entreprise :</label><br>
+						<input class="inputpdf" autocomplete="off" type="text" required="" name="titre"><br><br>
 
 
-        <label class="titlemainfiles" for="fileUpload" required="">Votre numéro de téléphone :</label><br>
-        <input class="inputpdf" autocomplete="off" type="tel" required="" name="titre"><br><br>
+						<label class="titlemainfiles" for="fileUpload" required="">Logo de votre entreprise :</label><br>
+						<label class="btnupload">
+							<input class="btnupload" id="files" name="document" accept=".pdf" type="file">
+						</label><br>
 
 
-
-        <label class="titlemainfiles" for="fileUpload" required="">Votre adresse email : (Qui sera votre identifiant)</label><br>
-        <input class="inputpdf" autocomplete="off" type="email" required="" name="titre"><br><br>
-
+						<label class="titlemainfiles" for="fileUpload" required="">Votre numéro de téléphone :</label><br>
+						<input class="inputpdf" autocomplete="off" type="tel" required="" name="titre"><br><br>
 
 
-        <label class="titlemainfiles" for="fileUpload" required="">Description bréve de votre entreprise :</label><br>
-       <textarea class="inputpdf" autocomplete="off" type="text" required="" name="titre"></textarea><br><br>
-
-	   <label class="titlemainfiles" for="fileUpload" required="">Mot de passe</label><br>
-       <input class="inputpdf" autocomplete="off" type="password" required="" name="titre"></input><br><br>
-
-	   <label class="titlemainfiles" for="fileUpload" required="">Confirmer votre mot de passe</label><br>
-       <input class="inputpdf" autocomplete="off" type="password" required="" name="titre"></input><br><br>
+						<label class="titlemainfiles" for="fileUpload" required="">Votre adresse email : (Qui sera votre identifiant)</label><br>
+						<input class="inputpdf" autocomplete="off" type="email" required="" name="titre"><br><br>
 
 
-			<input class="btnsave" autocomplete="off" type="submit" name="submit" value="Créer votre profil">
-		</form>
+						<label class="titlemainfiles" for="fileUpload" required="">Description bréve de votre entreprise :</label><br>
+						<textarea class="inputpdf" autocomplete="off" type="text" required="" name="titre"></textarea><br><br>
 
-	</div>
-			</div>
+						<label class="titlemainfiles" for="fileUpload" required="">Mot de passe</label><br>
+						<input class="inputpdf" autocomplete="off" type="password" required="" name="titre"></input><br><br>
 
-			
-
-
-	</main>
-
-	<script src="/static/js/toogleMenu.js"></script>
-	<script src="/static/js/favoris.js"></script>
+					<label class="titlemainfiles" for="fileUpload" required="">Confirmer votre mot de passe</label><br>
+					<input class="inputpdf" autocomplete="off" type="password" required="" name="titre"></input><br><br>
 
 
-
+				<input class="btnsave" autocomplete="off" type="submit" name="submit" value="Créer votre profil">
+			</form>
+		</div>
+	</body>
+</div>
+</main>
+`<script src="/static/js/toogleMenu.js"></script>
+<script src="/static/js/favoris.js"></script>
 </body>
 {% endblock %}
