@@ -31,6 +31,7 @@ input[type='date'] {
 .rating span {
     transition: color .4s;
     pointer-events: auto;
+    cursor: pointer;
 }
 
 .rating:hover span,
