@@ -6,7 +6,7 @@ main {
     align-content: stretch;
 }
 
-content {
+section {
     box-shadow: 0 -1px 4px 0 rgba(26, 26, 26, 0.08), 0 4px 8px 0 rgba(26, 26, 26, 0.12);
     width: 20%;
     height: 20em;
@@ -31,6 +31,7 @@ input[type='date'] {
 .rating span {
     transition: color .4s;
     pointer-events: auto;
+    cursor: pointer;
 }
 
 .rating:hover span,
@@ -41,10 +42,12 @@ input[type='date'] {
 .rating span:hover ~ span,
 .rating span:focus ~ span {
     color: #aaa;
+    cursor: pointer;
 }
 
 .checked {
     color: #fa0;
+    cursor: pointer;
 }
 
 .comments {

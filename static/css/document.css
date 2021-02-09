@@ -1,116 +1,73 @@
-section {
-    width: 100%;
-    height: 100%;
+h1 {
+    text-align: center;
+}
+
+input {
+    margin: 1em;
+    width: 40%;
+    height: 4em;
+}
+
+input[type=text] {
+    width: 30%;
+}
+
+form {
     display: flex;
-    justify-content: center;
+    flex-flow: column nowrap;
     align-items: center;
-}
-
-.txt-title {
-    font-size: 40px;
-    text-align: center;
-    margin-top: 80px;
-}
-
-.sectiondocument {
-    background-color: #ffffff;
     width: 100%;
-    height: 1250px;
-    margin-top: 100px;
 }
 
-.files-txt {
-    color: #000000;
+label {
     text-align: center;
-    font-size: 25px;
-    font-weight: 600;
+    font-size: 1.3em;
+    width: 100%;
 }
 
-.lib-txt {
-    color: #000000;
+section div {
+    color: black;
     text-align: center;
-    font-size: 25px;
-    font-weight: 600;
-    padding-top: 100px;
 }
 
-.btnsave {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 10%;
-    height: 50px;
-    border: none;
-    background: #fc5;
-    text-align: center;
-    color: #000;
-    cursor: pointer;
-    font-size: 15px;
-    font-weight: 700;
-    outline: none;
+.list {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-around;
+    padding: 10px;
+    margin-bottom: 2em;
+    border: solid black;
     border-radius: 5px;
-}
-
-.btnupload {
-    text-align: center;
-    display: block;
+    background-color: white;
+    width: 50%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 10px;
+    margin-top: 70px;
 }
 
-.sectionupload {
-    background-color: #ffffff;
-    -webkit-box-shadow: 0 2px 10px 0 rgb(5 5 5 / 15%);
+.pdflibrary {
+    background: url("/static/img/cvexemple.png") no-repeat center;
+    background-size: 219px;
     box-shadow: 0 2px 10px 0 rgb(5 5 5 / 15%);
-    width: 600px;
+    -webkit-box-shadow: 0 2px 10px 0 rgb(5 5 5 / 15%);
+    height: 300px;
+    width: 220px;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 10px;
-    margin-top: 50px;
-    padding-top: 50px;
-    padding-bottom: 50px;
-}
-
-.titlemainfiles {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    margin-top: 60px;
-}
-
-.inputpdf {
-    border: 1px solid #b8b8b8;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 300px;
-}
-
-input[type=submit] {
-    width: 270px;
-    height: 50px;
-    border: none;
-    background: #fc5;
-    text-align: center;
-    color: #000;
-    cursor: pointer;
-    font-size: 15px;
-    font-weight: 700;
-    outline: none;
     border-radius: 5px;
+    cursor: pointer;
+    transition: all 1s;
 }
 
-body {
-    display: grid;
-    grid-template-rows: 6.5fr 0.5fr;
-    grid-template-columns: 300px 1fr;
-    grid-template-areas: "navbar content" "nabvar footer";
-    color: #000000;
-    background: #000;
+.pdflibrary:hover {
+    transform: scale(1.1);
+}
+
+.upload {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    background: rgba(100, 100, 100, 0.5);
+    padding-top: 2em;
 }
 
 .filesUploaded {
@@ -128,11 +85,6 @@ body {
 }
 
 @media screen and (max-width: 747px) {
-    form {
-        font-size: 1em;
-        line-height: 1.5em;
-        width: 80%;
-    }
     input {
         width: 80%;
         height: 3em;

@@ -7,50 +7,24 @@
 {% endblock %}
 
 {% block content %}
-
-<body>
-	<main>
-	
-	<div class="txt-title">Vos Documents</div>
-		<div class="sectiondocument">
-		
-				
-	
-
-        		<div class="sectionupload">
-					<div class="files-txt">Enregistrez un nouveau fichiers PDF :</div>
-					<div class="blocdocument"></div>
-					{{result}}
+<h1>Vos Documents</h1>
 
 
-					<form action="/documents" method="post" enctype="multipart/form-data">
+<section class="upload">
+	<h2>Enregistrer un nouveau fichier</h2>
 
-       			 	<label class="titlemainfiles" for="fileUpload" required="">Titre de votre document :</label><br>
-                    <input class="inputpdf" autocomplete="off" type="text" required="" name="titre"><br><br>
+	{{result}}
 
-					<label class="btnupload">
-					<input class="btnupload" name="document" accept=".pdf" type="file">
-					</label><br>
-					<input class="btnsave" autocomplete="off" type="submit" name="submit" value="Enregistrer votre document PDF">
-					</form>
-
-					</div>
-				<div class="filesUploaded"> 
-				<div class= "files-txt">Documents enregistrés</div>
-				{{data|raw}}
-				</div>
-
-		</div>
-
-			
-
-
-	</main>
-
-	<script src="/static/js/toogleMenu.js"></script>
-	<script src="/static/js/favoris.js"></script>
-
-
-
-</body>
+	<form action="/documents" method="post" enctype="multipart/form-data">
+    	<label>Titre de votre document :
+        	<input type="text" name="title" required>
+        </label>
+        <input name="document" accept=".pdf" type="file">
+		<input type="submit" name="submit" value="Enregistrer votre document PDF">
+	</form>
+</section>
+<section class="list">
+<div>Documents enregistrés</div>
+	{{data|raw}}
+</section>
 {% endblock %}
