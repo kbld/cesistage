@@ -6,6 +6,7 @@ main {
     align-content: stretch;
 }
 
+<<<<<<< HEAD
 a{
     color: white;
     font-weight: 700;
@@ -24,6 +25,9 @@ input[type='date'] {
 }
 
 content {
+=======
+section {
+>>>>>>> 8f390ee3d4854415c0eb29970eb5549d99a1f018
     box-shadow: 0 -1px 4px 0 rgba(26, 26, 26, 0.08), 0 4px 8px 0 rgba(26, 26, 26, 0.12);
     width: 290px;
     height: 20em;
