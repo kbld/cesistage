@@ -8,11 +8,7 @@
 
 {% block content %}
 <h1>Vos Documents</h1>
-<section class="list">
-	<div class="pdflibrary"></div>
-	<div class="pdflibrary"></div>
-	<div class="pdflibrary"></div>
-</section>
+
 
 <section class="upload">
 	<h2>Enregistrer un nouveau fichier</h2>
@@ -26,5 +22,9 @@
         <input name="document" accept=".pdf" type="file">
 		<input type="submit" name="submit" value="Enregistrer votre document PDF">
 	</form>
+</section>
+<section class="list">
+<div>Documents enregistrés</div>
+	{{data|raw}}
 </section>
 {% endblock %}

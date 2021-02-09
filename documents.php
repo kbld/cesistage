@@ -13,7 +13,7 @@ if(isset($_FILES["document"])){
     $target_file = $target_dir . basename($_FILES["document"]["name"]);
     $check = file_exists($target_file);
     if($check !== false){
-        $result= "Ce fichier PDF existe deja";
+        $result= "Ce fichier PDF existe déja";
     } else {
         $fileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
     
@@ -65,5 +65,26 @@ if(isset($_FILES["document"])){
        
     }
 }
-    Render('documents.twig',["result" => $result]);
+
+
+function lister_fichiers($rep) {
+	if(is_dir($rep)) {
+        $data ="";
+		if($iteration = opendir($rep)) {
+			while(($fichier = readdir($iteration)) !== false) {
+				if($fichier != "." && $fichier != "..") {
+					$data = $data . '<a href="'.$rep.$fichier.'" target="_blank">'.$fichier.'</a><br />'."\n";  
+				}  
+			}  
+			closedir($iteration);
+            return $data;
+		}
+	}
+    else {
+        return false;
+    }
+} 
+
+$data = lister_fichiers("uploads/");
+Render('documents.twig',["result" => $result , "data" => $data]);
     
