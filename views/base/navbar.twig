@@ -45,6 +45,11 @@
 			<li>
 				<a href="/favoris">Favoris</a>
 			</li>
+			{% if session.group == 4 or session.group == 5 %}
+				<li>
+					<a href="/admin">Administration</a>
+				</li>
+			{% endif %}
 		{% endif %}
 		<li class="app-logo">
 			<img src="/static/img/logo.svg" alt="Application logo" width="220" height="120">
