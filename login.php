@@ -19,9 +19,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$password = CleanInput($_POST["password"]);
 	}
 
-	$user['username'] = $username;
-	$user['email'] = $username;
-	$user['password'] = $password;
+	$user['UserUsername'] = $username;
+	$user['UserEmail'] = $username;
+	$user['UserPassword'] = $password;
 
 	$db_user = Login($user);
 
@@ -30,14 +30,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		Render('login.twig', ['errors' => $errors]);
 	}
 	else {
-		if (password_verify($user['password'], $db_user['password'])) {
-			$_SESSION['id'] = $db_user['id'];
-			$_SESSION['username'] = $db_user['username'];
+		if (password_verify($user['UserPassword'], $db_user['UserPassword'])) {
+			$_SESSION['id'] = $db_user['UserId'];
+			$_SESSION['username'] = $db_user['UserUsername'];
 			$_SESSION['salt'] = random_bytes(16);
-			$_SESSION['group'] = $db_user['user_groups'];
+			$_SESSION['group'] = $db_user['groop'];
 
 			$_SESSION['hash'] = hash_pbkdf2("sha3-512", SECRET, $_SESSION['salt'], HASH_ITERATIONS, 0);
-			$_SESSION['token'] = base64_encode($db_user['id']) . '.' . $_SESSION['hash'] . '.' . base64_encode($db_user['username']);
+			$_SESSION['token'] = base64_encode($db_user['id']) . '.' . $_SESSION['hash'] . '.' . base64_encode($db_user['UserUsername']);
 
 			$_SESSION['login'] = true;
 			header("Location: /");

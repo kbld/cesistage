@@ -8,14 +8,14 @@
 
 {% block content %}
 <section>
-    <form action="/admin/company" method="post" accept-charset="utf-8">
+    <form action="/admin/company?edit={{ company.CompanyName }}" method="post" accept-charset="utf-8">
         <div class="safe">Changement des informations d'entreprise.</div>
         <label for="nom">Nom :</label>
-        <input id="nom" type="text" name="nom" value="{{ user.name }}" required>
+        <input id="nom" type="text" name="nom" value="{{ company.CompanyName }}" required>
         <div class="error">{{ errors['nom'] }}</div>
 
         <label for="description">Description :</label>
-        <textarea id="description" type="text" name="description" required>{{ user.Description }}</textarea>
+        <textarea id="description" type="text" name="description" required>{{ company.CompanyDescription }}</textarea>
         <div class="error">{{ errors['description'] }}</div>
 
         <input type="hidden" name="info" value="true">
@@ -28,8 +28,8 @@
 <hr>
 <section class="delete">
     <div class="delete_text">Toggle company</div>
-    <a href="/admin/disable_account"><button name="submit">Désactiver l'entreprise</button></a>
+    <a href="/admin/disable_company?name={{ company.CompanyName }}"><button name="submit">Désactiver l'entreprise</button></a>
     <div class="delete_text">Supression de l'entreprise</div>
-    <a href="/admin/delete_account"><button name="submit">Supprimer l'entreprise</button></a>
+    <a href="/admin/delete_account?name={{ company.CompanyName }}"><button name="submit">Supprimer l'entreprise</button></a>
 </section>
 {% endblock %}

@@ -22,14 +22,14 @@
     {% else %}
         {% for i in offers %}
             <p>
-                {{ i.id }}<br>
-                {{ i.starting }}<br>
-                {{ i.ending }}<br>
-                {{ i.posted }}<br>
-                {{ i.type }}<br>
-                {{ i.status }}<br>
+                {{ i.OfferId }}<br>
+                {{ i.OfferStarting }}<br>
+                {{ i.OfferEnding }}<br>
+                {{ i.OfferPosted }}<br>
+                {{ i.OfferType }}<br>
+                {{ i.OfferStatus }}<br>
                 {{ i.company }}<br>
-                {{ i.description }}<br>
+                {{ i.OfferDescription }}<br>
             </p>
         {% endfor %}
     {% endif %}

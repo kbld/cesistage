@@ -64,11 +64,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	if (isset($errors)) {
 		Render('register.twig', ['errors' => $errors]);
 	} else {
-		$user['name'] = $name;
-		$user['lastname'] = $lastname;
-		$user['username'] = $username;
-		$user['email'] = $email;
-		$user['password'] = $password;
+		$user['UserName'] = $name;
+		$user['UserLastname'] = $lastname;
+		$user['UserUsername'] = $username;
+		$user['UserEmail'] = $email;
+		$user['UserPassword'] = $password;
 		$result = Register($user);
 		if (!$result) {
 			$errors['register'] = "Register failed ! Internal server error. Error n°500";

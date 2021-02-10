@@ -20,7 +20,7 @@
         <tbody>
             {% for i in company %}
                 <tr>
-                    <td><a href="/admin/company?edit={{ i.CompanyName }}">{{ i.id }}</a></td>
+                    <td><a href="/admin/company?edit={{ i.CompanyName }}">{{ i.CompanyId }}</a></td>
                     <td><a href="/admin/company?edit={{ i.CompanyName }}">{{ i.CompanyName }}</a></td>
                     <td><a href="/admin/company?edit={{ i.CompanyName }}">{{ i.CompanyEnabled }}</a></td>
                     <td><a href="/admin/company?edit={{ i.CompanyName }}">{{ i.CompanyDescription[:40] }}</a></td>

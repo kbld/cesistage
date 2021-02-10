@@ -17,7 +17,6 @@
                 <th>Prénom</th>
                 <th>Nom d'utilisateur</th>
                 <th>Email</th>
-                <th>Status</th>
                 <th>Activé</th>
                 <th>Entreprise</th>
                 <th>Groupes</th>
@@ -27,16 +26,15 @@
         <tbody>
             {% for i in users %}
                 <tr>
-                    <td><a href="/admin/users?edit={{ i.username }}">{{ i.id }}</a></td>
-                    <td><a href="/admin/users?edit={{ i.username }}">{{ i.name }}</a></td>
-                    <td><a href="/admin/users?edit={{ i.username }}">{{ i.LastName }}</a></td>
-                    <td><a href="/admin/users?edit={{ i.username }}">{{ i.username }}</a></td>
-                    <td><a href="/admin/users?edit={{ i.username }}">{{ i.email }}</a></td>
-                    <td><a href="/admin/users?edit={{ i.username }}">{{ i.status }}</a></td>
-                    <td><a href="/admin/users?edit={{ i.username }}">{{ i.enabled }}</a></td>
-                    <td><a href="/admin/users?edit={{ i.username }}">{{ i.company }}</a></td>
-                    <td><a href="/admin/users?edit={{ i.username }}">{{ i.user_groups }}</a></td>
-                    <td><a href="/admin/users?edit={{ i.username }}">{{ i.Description[:20] }}</a></td>
+                    <td><a href="/admin/users?edit={{ i.UserUsername }}">{{ i.UserId }}</a></td>
+                    <td><a href="/admin/users?edit={{ i.UserUsername }}">{{ i.UserName }}</a></td>
+                    <td><a href="/admin/users?edit={{ i.UserUsername }}">{{ i.UserLastName }}</a></td>
+                    <td><a href="/admin/users?edit={{ i.UserUsername }}">{{ i.UserUsername }}</a></td>
+                    <td><a href="/admin/users?edit={{ i.UserUsername }}">{{ i.UserEmail }}</a></td>
+                    <td><a href="/admin/users?edit={{ i.UserUsername }}">{{ i.UserEnabled }}</a></td>
+                    <td><a href="/admin/users?edit={{ i.UserUsername }}">{{ i.company }}</a></td>
+                    <td><a href="/admin/users?edit={{ i.UserUsername }}">{{ i.groop }}</a></td>
+                    <td><a href="/admin/users?edit={{ i.UserUsername }}">{{ i.UserDescription[:20] }}</a></td>
                 </tr>
             {% endfor %}
         </tbody>

@@ -9,31 +9,31 @@
 {% block content %}
 {% if user %}
 	<section class="user_card">
-		<img src='{{ ProfilePicture ?? "/static/img/DefaultProfil.png" }}' alt="">
-		<h2>{{ user.lastName }} {{ user.name }}</h2>
-		<div id="username">{{ user.username }}</div>
-		<div>{{ user.email }}</div>
+		<img src='{{ user.UserPictureFile ?? "/static/img/DefaultProfil.png" }}' alt="">
+		<h2>{{ user.UserLastName }} {{ user.UserName }}</h2>
+		<div id="username">{{ user.UserUsername }}</div>
+		<div>{{ user.UserEmail }}</div>
 		<div>
 			{{ user.Description }}
 		</div>
 	</section>
-	{% if user.username == session.username %}
+	{% if user.UserUsername == session.username %}
 		<hr>
 		<section>
 			<form action="/user" method="post" accept-charset="utf-8">
 				<div class="safe">Changer mes informations personelles.</div>
 				<label for="nom">Votre nom :</label>
-				<input id="nom" type="text" name="nom" value="{{ user.name }}" required>
+				<input id="nom" type="text" name="nom" value="{{ user.UserName }}" required>
 				<div class="error">{{ errors['nom'] }}</div>
 				<label for="prenom">Votre prénom :</label>
-				<input id="prenom" type="text" name="prenom" value="{{ user.lastName }}" required>
+				<input id="prenom" type="text" name="prenom" value="{{ user.UserLastName }}" required>
 				<div class="error">{{ errors['prenom'] }}</div>
 				<label for="email">Votre adresse mail :</label>
-				<input id="email" type="email" name="email" value="{{ user.email }}" required>
+				<input id="email" type="email" name="email" value="{{ user.UserEmail }}" required>
 				<div class="error">{{ errors['email'] }}</div>
 
 				<label for="description">Votre description :</label>
-				<textarea id="description" type="text" name="description" required>{{ user.Description }}</textarea>
+				<textarea id="description" type="text" name="description" required>{{ user.UserDescription }}</textarea>
 				<div class="error">{{ errors['description'] }}</div>
 
 				<input type="hidden" name="personal" value="true">
@@ -71,7 +71,7 @@
 				<input list="company_list" id="company" type="text" name="company" required>
 				<datalist id="company_list">
 					{% for i in companys %}
-						<option value="{{ i.CompanyName }}" />
+						<option value="{{ i.CompanyName }}"></option>
 					{% endfor %}
 				</datalist>
 

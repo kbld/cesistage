@@ -43,11 +43,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		}
 		$description = CleanInput($_POST["description"]);
 
-		$user['name'] = $prenom;
-		$user['lastname'] = $name;
-		$user['email'] = $email;
-		$user['description'] = $description;
-		$user['username'] = $_SESSION['username'];
+		$user['UserName'] = $prenom;
+		$user['UserLastname'] = $name;
+		$user['UserEmail'] = $email;
+		$user['UserDescription'] = $description;
+		$user['UserUsername'] = $_SESSION['username'];
 
 		if (isset($prenom) && isset($username) && isset($lastname) && isset($email) && isset($description)) {
 			$result = UpdateAccount($user);
@@ -83,11 +83,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			$errors['password2'] = $errors['password'] = "Les mots de passe ne sont pas identiques";
 		}
 
-		$user['username'] = $_SESSION['username'];
+		$user['UserUsername'] = $_SESSION['username'];
 		$user = Login($user);
 
-		if (password_verify($old_password, $user['password'])) {
-			$user['password'] = password_hash(
+		if (password_verify($old_password, $user['UserPassword'])) {
+			$user['UserPassword'] = password_hash(
 				$password,
 				PASSWORD_ARGON2ID,
 				[
@@ -119,7 +119,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		}
 
 		if (isset($company)) {
-			$user['username'] = $_SESSION['username'];
+			$user['UserUsername'] = $_SESSION['username'];
 			$user['company'] = $company;
 			$result = ChangeUserCompany($user);
 			if (!$result) {

@@ -19,7 +19,7 @@ function DBConnect() {
 
 function Register($user) {
 	$password = password_hash(
-		$user['password'],
+		$user['UserPassword'],
 		PASSWORD_ARGON2ID,
 		[
 			'memory_cost' => 2048,
@@ -34,15 +34,15 @@ function Register($user) {
 		$dbh->beginTransaction();
 
 		$stmt = $dbh->prepare(
-			"INSERT INTO users
-			(name, lastName, email, username, password)
+			"INSERT INTO user
+			(UserName, UserLastName, UserEmail, UserUsername, UserPassword)
 			VALUES
 			(:name, :lastName, :email, :username, :password)"
 		);
-		$stmt->bindParam(':name', $user['name']);
-		$stmt->bindParam(':lastName', $user['lastname']);
-		$stmt->bindParam(':email', $user['email']);
-		$stmt->bindParam(':username', $user['username']);
+		$stmt->bindParam(':name', $user['UserName']);
+		$stmt->bindParam(':lastName', $user['UserLastname']);
+		$stmt->bindParam(':email', $user['UserEmail']);
+		$stmt->bindParam(':username', $user['UserUsername']);
 		$stmt->bindParam(':password', $password);
 		$stmt->execute();
 
@@ -61,12 +61,12 @@ function Login($user) {
 		$dbh->beginTransaction();
 
 		$user_by_username = $dbh->prepare(
-			"SELECT * FROM users WHERE username=(:username)"
+			"SELECT * FROM user WHERE UserUsername=(:username)"
 		);
-		$user_by_username->bindParam(':username', $user['username']);
+		$user_by_username->bindParam(':username', $user['UserUsername']);
 
 		$user_by_email = $dbh->prepare(
-			"SELECT * FROM users WHERE email=(:email)"
+			"SELECT * FROM user WHERE UserEmail=(:email)"
 		);
 		$user_by_email->bindParam(':email', $user['email']);
 
@@ -97,7 +97,7 @@ function GetNumberOfOffers() {
 	try {
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$dbh->beginTransaction();
-		$req = $dbh->prepare("SELECT COUNT(*) FROM offers WHERE OfferStatus=1");
+		$req = $dbh->prepare("SELECT COUNT(*) FROM offer WHERE OfferStatus=1");
 		$req->execute();
 
 		$request = $req->fetch(PDO::FETCH_ASSOC);
@@ -116,7 +116,7 @@ function GetOffers($start = 0) {
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$dbh->beginTransaction();
 
-		$req = $dbh->prepare("SELECT * FROM offers JOIN company ON offers.company=company.id WHERE offers.id>=(:start) AND OfferStatus=1 LIMIT 100");
+		$req = $dbh->prepare("SELECT * FROM offer JOIN company ON company=CompanyId WHERE OfferId>=(:start) AND OfferStatus=1 LIMIT 100");
 		$req->bindParam(':start', $start);
 
 		$req->execute();
@@ -138,11 +138,11 @@ function SearchOffers($search, $start = 0) {
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$dbh->beginTransaction();
 
-		$req = $dbh->prepare("SELECT * FROM offers JOIN company ON offers.company=company.id WHERE OfferTitle LIKE (:search) AND offers.id>=(:start) AND OfferStatus=1 ORDER BY OfferStarting LIMIT 100");
+		$req = $dbh->prepare("SELECT * FROM offer JOIN company ON company=CompanyId WHERE OfferTitle LIKE (:search) AND OfferId>=(:start) AND OfferStatus=1 ORDER BY OfferStarting LIMIT 100");
 		$req->bindParam(':start', $start);
 		$req->bindParam(':search', $search);
 
-		$count = $dbh->prepare("SELECT COUNT(*) FROM offers WHERE OfferTitle LIKE (:search) AND id>=(:start) AND status=1");
+		$count = $dbh->prepare("SELECT COUNT(*) FROM offer WHERE OfferTitle LIKE (:search) AND OfferId>=(:start) AND OfferStatus=1");
 		$count->bindParam(':start', $start);
 		$count->bindParam(':search', $search);
 
@@ -170,7 +170,7 @@ function GetUserInfo($user) {
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$dbh->beginTransaction();
 
-		$req = $dbh->prepare("SELECT * FROM users LEFT JOIN company ON (users.company IS NOT NULL AND users.company=company.id) WHERE users.username=(:user)");
+		$req = $dbh->prepare("SELECT * FROM user LEFT JOIN company ON (company IS NOT NULL AND company=CompanyId) WHERE UserUsername=(:user)");
 		$req->bindParam(':user', $user);
 
 		$req->execute();
@@ -215,7 +215,7 @@ function DeleteAccount($username) {
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$dbh->beginTransaction();
 
-		$req = $dbh->prepare("DELETE FROM `users` WHERE `username`=(:username)");
+		$req = $dbh->prepare("DELETE FROM user WHERE UserUsername=(:username)");
 		$req->bindParam(':username', $username);
 
 		$req->execute();
@@ -236,12 +236,12 @@ function UpdateAccount($user) {
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$dbh->beginTransaction();
 
-		$req = $dbh->prepare("UPDATE `users` SET `name`=(:name), `lastName`=(:lastname), `email`=(:email), `Description`=(:description) WHERE `username`=(:username)");
-		$req->bindParam(':name', $user['name']);
-		$req->bindParam(':lastname', $user['lastname']);
-		$req->bindParam(':email', $user['email']);
-		$req->bindParam(':description', $user['description']);
-		$req->bindParam(':username', $user['username']);
+		$req = $dbh->prepare("UPDATE user SET UserName=(:name), UserLastName=(:lastname), UserEmail=(:email), UserDescription=(:description) WHERE UserUsername=(:username)");
+		$req->bindParam(':name', $user['UserName']);
+		$req->bindParam(':lastname', $user['UserLastname']);
+		$req->bindParam(':email', $user['UserEmail']);
+		$req->bindParam(':description', $user['UserDescription']);
+		$req->bindParam(':username', $user['UserUsername']);
 
 		$req->execute();
 
@@ -261,9 +261,9 @@ function UpdatePassword($user) {
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$dbh->beginTransaction();
 
-		$req = $dbh->prepare("UPDATE `users` SET `password`=(:password) WHERE `username`=(:username)");
-		$req->bindParam(':password', $user['password']);
-		$req->bindParam(':username', $user['username']);
+		$req = $dbh->prepare("UPDATE user SET UserPassword=(:password) WHERE UserUsername=(:username)");
+		$req->bindParam(':password', $user['UserPassword']);
+		$req->bindParam(':username', $user['UserUsername']);
 
 		$req->execute();
 
@@ -283,9 +283,9 @@ function ChangeUserCompany($user) {
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$dbh->beginTransaction();
 
-		$req = $dbh->prepare("UPDATE `users` SET `company`=(SELECT id FROM company WHERE `CompanyName`=(:company)) WHERE `username` = (:username)");
+		$req = $dbh->prepare("UPDATE user SET company=(SELECT CompanyId FROM company WHERE CompanyName=(:company)) WHERE UserUsername = (:username)");
 		$req->bindParam(':company', $user['company']);
-		$req->bindParam(':username', $user['username']);
+		$req->bindParam(':username', $user['UserUsername']);
 
 		$req->execute();
 
@@ -305,7 +305,7 @@ function GetPermissions($id) {
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$dbh->beginTransaction();
 
-		$req = $dbh->prepare("SELECT * FROM `gps` WHERE `id`=(:id)");
+		$req = $dbh->prepare("SELECT * FROM groops WHERE GroupId=(:id)");
 		$req->bindParam(':id', $id);
 
 		$req->execute();
@@ -329,7 +329,7 @@ function GetUsersList() {
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$dbh->beginTransaction();
 
-		$req = $dbh->prepare("SELECT * FROM users");
+		$req = $dbh->prepare("SELECT * FROM user");
 
 		$req->execute();
 
@@ -383,6 +383,55 @@ function GetCompanyInfo($name) {
 		$dbh->commit();
 
 		return $request;
+	} catch (Exception $e) {
+		$dbh->rollBack();
+		return false;
+	}
+}
+
+function UpdateCompany($company) {
+	$dbh = DBConnect();
+
+	try {
+		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$dbh->beginTransaction();
+
+		$req = $dbh->prepare("UPDATE company SET CompanyName=(:name), CompanyDescription=(:description) WHERE CompanyId=(:id)");
+		$req->bindParam(':name', $company['CompanyName']);
+		$req->bindParam(':description', $company['CompanyDescription']);
+		$req->bindParam(':id', $company['CompanyId']);
+
+		$req->execute();
+
+		$dbh->commit();
+
+		return true;
+	} catch (Exception $e) {
+		$dbh->rollBack();
+		return false;
+	}
+}
+
+function UpdateAccountById($user) {
+	$dbh = DBConnect();
+
+	try {
+		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$dbh->beginTransaction();
+
+		$req = $dbh->prepare("UPDATE user SET UserName=(:name), UserLastName=(:lastname), UserEmail=(:email), UserDescription=(:description), UserUsername=(:username) WHERE UserId=(:id)");
+		$req->bindParam(':name', $user['UserName']);
+		$req->bindParam(':lastname', $user['UserLastName']);
+		$req->bindParam(':email', $user['UserEmail']);
+		$req->bindParam(':description', $user['UserDescription']);
+		$req->bindParam(':username', $user['UserUsername']);
+		$req->bindParam(':id', $user['UserId']);
+
+		$req->execute();
+
+		$dbh->commit();
+
+		return true;
 	} catch (Exception $e) {
 		$dbh->rollBack();
 		return false;
