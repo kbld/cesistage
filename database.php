@@ -35,9 +35,9 @@ function Register($user) {
 
 		$stmt = $dbh->prepare(
 			"INSERT INTO user
-			(UserName, UserLastName, UserEmail, UserUsername, UserPassword)
+			(UserName, UserLastName, UserEmail, UserUsername, UserPassword, UserEnabled, groop)
 			VALUES
-			(:name, :lastName, :email, :username, :password)"
+			(:name, :lastName, :email, :username, :password, 1, 1)"
 		);
 		$stmt->bindParam(':name', $user['UserName']);
 		$stmt->bindParam(':lastName', $user['UserLastname']);

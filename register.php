@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		Render('register.twig', ['errors' => $errors]);
 	} else {
 		$user['UserName'] = $name;
-		$user['UserLastname'] = $lastname;
+		$user['UserLastName'] = $lastname;
 		$user['UserUsername'] = $username;
 		$user['UserEmail'] = $email;
 		$user['UserPassword'] = $password;
