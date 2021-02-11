@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		Render('login.twig', ['errors' => $errors]);
 	}
 	else {
-		if (password_verify($user['UserPassword'], $db_user['UserPassword'])) {
+		if (password_verify($user['UserPassword'], $db_user['UserPassword']) and $db_user['UserEnabled']) {
 			$_SESSION['id'] = $db_user['UserId'];
 			$_SESSION['username'] = $db_user['UserUsername'];
 			$_SESSION['salt'] = random_bytes(16);
@@ -42,6 +42,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			$_SESSION['login'] = true;
 			header("Location: /");
 			exit;
+		} elseif ($db_user['UserEnabled']) {
+			$errors['password'] = 'Your accound is disabled. Please contact a moderator or administrator for more informations';
+			Render('login.twig', ['errors' => $errors]);
 		}
 		else {
 			$errors['password'] = 'Bad password';

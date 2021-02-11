@@ -1,0 +1,20 @@
+{% extends "base/base.twig" %}
+
+{% block title %}Administration - Désactivation{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="/static/css/admin/disable.css">
+{% endblock %}
+
+{% block content %}
+<section>
+    <form action="/admin/disable_{{ disable.type }}?name={{ disable.name }}" method="post" accept-charset="utf-8">
+        <label id="sure">
+            Êtes vous sure de vouloir changer le status d'activation de {{ disable.name }} ?
+        </label>
+        <input type="hidden" name="disable" value="true">
+        <a href="/user" class="button">Non</a>
+        <input type="submit" name="submit" value="Oui">
+    </form>
+</section>
+{% endblock %}

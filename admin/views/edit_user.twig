@@ -58,8 +58,8 @@
 <hr>
 <section class="delete">
     <div class="delete_text">Toggle account</div>
-    <a href="/admin/disable_account"><button name="submit">Désactiver le compte</button></a>
+    <a href="/admin/disable_account?name={{ user.UserUsername }}"><button name="submit">Activer/Désactiver le compte</button></a>
     <div class="delete_text">Supression du compte</div>
-    <a href="/admin/delete_account"><button name="submit">Supprimer le compte</button></a>
+    <a href="/admin/delete_account?name={{ user.UserUsername }}"><button name="submit">Supprimer le compte</button></a>
 </section>
 {% endblock %}

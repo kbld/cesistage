@@ -437,3 +437,45 @@ function UpdateAccountById($user) {
 		return false;
 	}
 }
+
+function DisableAccount($user) {
+	$dbh = DBConnect();
+
+	try {
+		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$dbh->beginTransaction();
+
+		$req = $dbh->prepare("UPDATE user SET UserEnabled=IF(UserEnabled=1, 0, 1) WHERE UserUsername=(:username)");
+		$req->bindParam(':username', $user['UserUsername']);
+
+		$req->execute();
+
+		$dbh->commit();
+
+		return true;
+	} catch (Exception $e) {
+		$dbh->rollBack();
+		return false;
+	}
+}
+
+function DisableCompany($company) {
+	$dbh = DBConnect();
+
+	try {
+		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$dbh->beginTransaction();
+
+		$req = $dbh->prepare("UPDATE company SET CompanyEnabled=IF(CompanyEnabled=1, 0, 1) WHERE CompanyName=(:name)");
+		$req->bindParam(':name', $company['CompanyName']);
+
+		$req->execute();
+
+		$dbh->commit();
+
+		return true;
+	} catch (Exception $e) {
+		$dbh->rollBack();
+		return false;
+	}
+}
