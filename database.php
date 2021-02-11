@@ -479,3 +479,24 @@ function DisableCompany($company) {
 		return false;
 	}
 }
+
+function DeleteCompany($company) {
+	$dbh = DBConnect();
+
+	try {
+		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$dbh->beginTransaction();
+
+		$req = $dbh->prepare("DELETE FROM company WHERE CompanyName=(:company)");
+		$req->bindParam(':company', $company);
+
+		$req->execute();
+
+		$dbh->commit();
+
+		return true;
+	} catch (Exception $e) {
+		$dbh->rollBack();
+		return false;
+	}
+}

@@ -8,12 +8,12 @@
 
 {% block content %}
 <section>
-    <form action="/admin/delete?name={{ delete.name }}" method="post" accept-charset="utf-8" class="center">
+    <form action="/admin/delete_{{ delete.type }}?name={{ delete.name }}" method="post" accept-charset="utf-8" class="center">
         <label id="sure">
-            Êtes vous sure de vouloir changer le status d'activation de {{ delete.name }} ?
+            Êtes vous sure de vouloir supprimer {{ delete.name }} ?
         </label>
         <input type="hidden" name="delete" value="true">
-        <a href="/user" class="button">Non</a>
+        <a href="/admin" class="button">Non</a>
         <input type="submit" name="submit" value="Oui">
     </form>
 </section>
