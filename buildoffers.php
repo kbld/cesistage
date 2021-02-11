@@ -1,5 +1,12 @@
 <?php
 require_once 'utils.php';
 
-Render('buildoffers.twig', []);
-?>
+if ($_SESSION['login'] and ($_SESSION['group'] >= 2)) {
+	Render('buildoffers.twig', []);
+} elseif ($_SESSION['login']) {
+	header('Location: /');
+	exit;
+} else {
+	header('Location: /login');
+	exit;
+}

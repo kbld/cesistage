@@ -45,7 +45,17 @@
 			<li>
 				<a href="/favoris">Favoris</a>
 			</li>
-			{% if session.group == 4 or session.group == 5 %}
+			{% if session.group >= 2 %}
+				<li>
+					<a href="/buildoffers">Ajouter une offre</a>
+				</li>
+			{% endif %}
+			{% if session.group >= 3 %}
+				<li>
+					<a href="/registercorp">Ajouter une entreprise</a>
+				</li>
+			{% endif %}
+			{% if session.group >= 4 %}
 				<li>
 					<a href="/admin">Administration</a>
 				</li>
