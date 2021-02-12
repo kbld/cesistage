@@ -500,3 +500,27 @@ function DeleteCompany($company) {
 		return false;
 	}
 }
+
+function RegisterCorp($company) {
+	$dbh = DBConnect();
+	try {
+		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$dbh->beginTransaction();
+
+		$stmt = $dbh->prepare(
+			"INSERT INTO company
+			(CompanyName, CompanyDescription, CompanyEnabled)
+			VALUES
+			(:name, :description, 1)"
+		);
+		$stmt->bindParam(':name', $company['CompanyName']);
+		$stmt->bindParam(':description', $company['CompanyDescription']);
+		$stmt->execute();
+
+		$dbh->commit();
+		return true;
+	} catch (Exception $e) {
+		$dbh->rollBack();
+		return "Failed: " . $e->getMessage();
+	}
+}

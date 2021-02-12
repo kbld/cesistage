@@ -2,41 +2,28 @@
 
 {% block title %}CESI - Création votre Profil entreprise{% endblock %}
 
+{% block style %}
+	<link rel="stylesheet" href="/static/css/registercorp.css">
+{% endblock %}
+
+
 {% block content %}
-<div class="txt-title">Créer votre profil entreprise</div>
-<div class="sectiondocument">
-	<div class="marginform"></div>
+<section>
+	<form action="/registercorp" method="post">
+		<h2>Créer votre profil entreprise</h2>
+		<span class="error">{{ errors.register }}</span>
+		<label>Nom de l'entreprise :</label>
+		<input type="text" name="nom" required>
+		<span class="error">{{ errors.nom }}</span>
 
-	<div class="sectionupload">
-		<div class="files-txt">Formulaire de création de profil entreprise</div>
-		<div class="blocdocument"></div>
+		{# <label>Logo :</label>
+		<input name="logo" accept=".pdf" type="file"> #}
 
-		<form action="" method="post">
-			<label class="titlemainfiles" for="fileUpload" required="">Nom de votre Entreprise :</label><br>
-			<input class="inputpdf" autocomplete="off" type="text" required="" name="titre"><br><br>
+		<label>Description :</label>
+		<textarea type="text" name="description" required></textarea>
+		<span class="error">{{ errors.description }}</span>
 
-			<label class="titlemainfiles" for="fileUpload" required="">Logo de votre entreprise :</label><br>
-			<label class="btnupload">
-				<input class="btnupload" id="files" name="document" accept=".pdf" type="file">
-			</label><br>
-
-			<label class="titlemainfiles" for="fileUpload" required="">Votre numéro de téléphone :</label><br>
-			<input class="inputpdf" autocomplete="off" type="tel" required="" name="titre"><br><br>
-
-			<label class="titlemainfiles" for="fileUpload" required="">Votre adresse email : (Qui sera votre identifiant)</label><br>
-			<input class="inputpdf" autocomplete="off" type="email" required="" name="titre"><br><br>
-
-			<label class="titlemainfiles" for="fileUpload" required="">Description bréve de votre entreprise :</label><br>
-			<textarea class="inputpdf" autocomplete="off" type="text" required="" name="titre"></textarea><br><br>
-
-			<label class="titlemainfiles" for="fileUpload" required="">Mot de passe</label><br>
-			<input class="inputpdf" autocomplete="off" type="password" required="" name="titre"></input><br><br>
-
-			<label class="titlemainfiles" for="fileUpload" required="">Confirmer votre mot de passe</label><br>
-			<input class="inputpdf" autocomplete="off" type="password" required="" name="titre"></input><br><br>
-
-			<input class="btnsave" autocomplete="off" type="submit" name="submit" value="Créer votre profil">
-		</form>
-	</div>
-</div>
+		<input type="submit" name="submit" value="Créer">
+	</form>
+</section>
 {% endblock %}
